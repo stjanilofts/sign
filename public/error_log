@@ -1,0 +1,81 @@
+[21-Nov-2015 15:09:20 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/storage/framework/views/848a74654fd2a54ddcf5045169e186e4 on line 8
+[21-Nov-2015 15:09:56 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/storage/framework/views/848a74654fd2a54ddcf5045169e186e4 on line 8
+[21-Nov-2015 15:09:57 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/storage/framework/views/848a74654fd2a54ddcf5045169e186e4 on line 8
+[21-Nov-2015 15:10:04 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/storage/framework/views/848a74654fd2a54ddcf5045169e186e4 on line 8
+[21-Nov-2015 15:10:28 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/storage/framework/views/848a74654fd2a54ddcf5045169e186e4 on line 8
+[21-Nov-2015 15:10:29 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/storage/framework/views/848a74654fd2a54ddcf5045169e186e4 on line 8
+[21-Nov-2015 15:59:07 GMT] PHP Fatal error:  Call to a member function getSubs() on null in /home/sapan2len/laravel/app/helpers.php on line 126
+[21-Nov-2015 16:09:00 GMT] PHP Fatal error:  Call to undefined function arr() in /home/sapan2len/laravel/app/helpers.php on line 187
+[21-Nov-2015 16:09:03 GMT] PHP Fatal error:  Call to undefined function arr() in /home/sapan2len/laravel/app/helpers.php on line 187
+[22-Nov-2015 16:34:01 GMT] PHP Parse error:  syntax error, unexpected '$currentItem' (T_VARIABLE) in /home/sapan2len/laravel/storage/framework/views/84f113a356c7da7fee10ddef97f77f30 on line 13
+[22-Nov-2015 16:38:34 GMT] PHP Fatal error:  Call to a member function addEagerConstraints() on null in /home/sapan2len/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php on line 451
+[22-Nov-2015 16:38:35 GMT] PHP Fatal error:  Call to a member function addEagerConstraints() on null in /home/sapan2len/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php on line 451
+[22-Nov-2015 16:51:32 GMT] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/sapan2len/laravel/storage/framework/views/bd65a49adac5c5f935204b7697edc4cd on line 20
+[22-Nov-2015 16:51:33 GMT] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/sapan2len/laravel/storage/framework/views/bd65a49adac5c5f935204b7697edc4cd on line 20
+[22-Nov-2015 16:51:49 GMT] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/sapan2len/laravel/storage/framework/views/bd65a49adac5c5f935204b7697edc4cd on line 20
+[23-Nov-2015 11:27:38 GMT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/sapan2len/laravel/storage/framework/views/8f6c596476ea96f487783015e308a824 on line 98
+[22-Dec-2015 10:32:47 GMT] PHP Fatal error:  Call to undefined function App\Http\Controllers\orderBy() in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 31
+[22-Dec-2015 13:45:08 GMT] PHP Fatal error:  Class 'App\Http\Controllers\Cache' not found in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 64
+[22-Dec-2015 13:45:36 GMT] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /home/sfh2len/laravel/vendor/laravel/framework/src/Illuminate/Cache/FileStore.php on line 78
+[22-Dec-2015 13:45:42 GMT] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 32 bytes) in /home/sfh2len/laravel/vendor/laravel/framework/src/Illuminate/Cache/FileStore.php on line 78
+[22-Dec-2015 13:46:05 GMT] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 32 bytes) in /home/sfh2len/laravel/vendor/laravel/framework/src/Illuminate/Cache/FileStore.php on line 78
+[22-Dec-2015 13:52:05 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:09 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:09 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:19 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:19 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:20 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:20 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:29 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 13:52:30 GMT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting '(' in /home/sfh2len/laravel/app/Http/Controllers/ApiController.php on line 87
+[22-Dec-2015 17:03:02 GMT] PHP Fatal error:  Cannot redeclare class App\Http\Middleware\VerifyCsrfToken in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 29
+[22-Dec-2015 17:18:04 GMT] PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting \\ (T_NS_SEPARATOR) or ';' or '{' in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 5
+[22-Dec-2015 17:18:17 GMT] PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting \\ (T_NS_SEPARATOR) or ';' or '{' in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 5
+[22-Dec-2015 17:18:44 GMT] PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting \\ (T_NS_SEPARATOR) or ';' or '{' in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 5
+[22-Dec-2015 17:19:07 GMT] PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting \\ (T_NS_SEPARATOR) or ';' or '{' in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 5
+[22-Dec-2015 17:19:08 GMT] PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting \\ (T_NS_SEPARATOR) or ';' or '{' in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 5
+[22-Dec-2015 17:19:19 GMT] PHP Fatal error:  Call to a member function send() on null in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:19:20 GMT] PHP Fatal error:  Call to a member function send() on null in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:19:27 GMT] PHP Fatal error:  Call to a member function send() on null in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:21:53 GMT] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/sfh2len/laravel/app/Http/routes.php on line 13
+[22-Dec-2015 17:21:54 GMT] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/sfh2len/laravel/app/Http/routes.php on line 13
+[22-Dec-2015 17:27:56 GMT] PHP Fatal error:  Call to a member function send() on null in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:27:57 GMT] PHP Fatal error:  Call to a member function send() on null in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:28:07 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:28:08 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:28:09 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:28:14 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:28:53 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:28:54 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:29:05 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::send() in /home/sfh2len/laravel/public/index.php on line 56
+[22-Dec-2015 17:29:05 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::toJson() in /home/sfh2len/laravel/app/Http/Middleware/ApiMiddleware.php on line 20
+[07-Jan-2016 12:55:58 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::site() in /home/normx2len/laravel/bootstrap/cache/compiled.php on line 6025
+[07-Jan-2016 12:55:59 GMT] PHP Fatal error:  Call to undefined method Illuminate\Http\Request::site() in /home/normx2len/laravel/bootstrap/cache/compiled.php on line 6025
+[12-Jan-2016 13:53:03 GMT] PHP Fatal error:  Out of memory (allocated 9961472) (tried to allocate 178976 bytes) in /home/normx2len/laravel/vendor/laravel/framework/src/Illuminate/Cache/FileStore.php on line 78
+[12-Jan-2016 13:53:03 GMT] PHP Fatal error:  Out of memory (allocated 9175040) (tried to allocate 72 bytes) in /home/normx2len/laravel/app/Http/Middleware/EncryptCookies.php on line 19
+[12-Jan-2016 13:53:03 GMT] PHP Fatal error:  Out of memory (allocated 16515072) (tried to allocate 20736 bytes) in /home/normx2len/laravel/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 33
+[12-Jan-2016 13:53:03 GMT] PHP Fatal error:  Out of memory (allocated 18350080) (tried to allocate 20736 bytes) in /home/normx2len/laravel/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 33
+[15-Jan-2016 12:41:54 GMT] PHP Fatal error:  Trait 'App\Http\Controllers\Auth\AuthenticatesAndRegistersUsers' not found in /home/hotelrekstur2len/laravel/app/Http/Controllers/Auth/AuthController.php on line 21
+[15-Jan-2016 12:41:55 GMT] PHP Fatal error:  Trait 'App\Http\Controllers\Auth\AuthenticatesAndRegistersUsers' not found in /home/hotelrekstur2len/laravel/app/Http/Controllers/Auth/AuthController.php on line 21
+[15-Jan-2016 16:52:18 GMT] PHP Parse error:  syntax error, unexpected '[', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/hotelrekstur2len/laravel/storage/framework/views/464da23214e76b234ccdd890596f1a4e on line 11
+[15-Jan-2016 16:52:19 GMT] PHP Parse error:  syntax error, unexpected '[', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/hotelrekstur2len/laravel/storage/framework/views/464da23214e76b234ccdd890596f1a4e on line 11
+[18-Jan-2016 09:38:00 GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:38:01 GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:40:03 GMT] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/hotelrekstur2len/laravel/storage/framework/views/464da23214e76b234ccdd890596f1a4e on line 9
+[18-Jan-2016 09:41:31 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:41:32 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:41:59 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:42:00 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:42:01 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:42:14 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 09:42:14 GMT] PHP Parse error:  syntax error, unexpected ',' in /home/hotelrekstur2len/laravel/app/Http/Controllers/VorukerfiController.php on line 52
+[18-Jan-2016 11:11:50 GMT] PHP Fatal error:  Class 'App\Http\Controllers\ItemableController' not found in /home/hotelrekstur2len/laravel/app/Http/Controllers/ProductController.php on line 11
+[18-Jan-2016 11:14:57 GMT] PHP Fatal error:  Class 'App\Formable' not found in /home/hotelrekstur2len/laravel/app/Product.php on line 12
+[18-Jan-2016 11:18:43 GMT] PHP Fatal error:  Call to a member function get() on string in /home/hotelrekstur2len/laravel/app/Http/routes.php on line 11
+[18-Jan-2016 12:33:15 GMT] PHP Parse error:  syntax error, unexpected '{' in /home/hotelrekstur2len/laravel/app/Http/Controllers/ItemableController.php on line 169
+[18-Jan-2016 12:33:16 GMT] PHP Parse error:  syntax error, unexpected '{' in /home/hotelrekstur2len/laravel/app/Http/Controllers/ItemableController.php on line 169
+[18-Jan-2016 12:55:20 GMT] PHP Parse error:  syntax error, unexpected '$item' (T_VARIABLE), expecting ',' or ';' in /home/hotelrekstur2len/laravel/app/Http/Controllers/ItemableController.php on line 164
+[18-Jan-2016 12:55:20 GMT] PHP Parse error:  syntax error, unexpected '$item' (T_VARIABLE), expecting ',' or ';' in /home/hotelrekstur2len/laravel/app/Http/Controllers/ItemableController.php on line 164
+[18-Jan-2016 13:18:09 GMT] PHP Fatal error:  Call to a member function fullPath() on null in /home/hotelrekstur2len/laravel/app/Formable.php on line 59
+[18-Jan-2016 13:18:11 GMT] PHP Fatal error:  Call to a member function fullPath() on null in /home/hotelrekstur2len/laravel/app/Formable.php on line 59
+[18-Jan-2016 13:18:33 GMT] PHP Fatal error:  Class 'App\Formable' not found in /home/hotelrekstur2len/laravel/app/Page.php on line 11
