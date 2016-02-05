@@ -20,7 +20,7 @@ class Product extends Formable
 
     protected $table = 'products';
 
-    protected $fillable = ['id', 'title', 'features', 'extras', 'options', 'tech', 'sizes', 'fillimage', 'hlutur', 'price', 'vnr', 'content', 'slug', 'category_id', 'images', 'shell', 'skirt', 'translations', 'order', 'status', 'files'];
+    protected $fillable = ['id', 'title', 'collection', 'features', 'extras', 'options', 'tech', 'sizes', 'fillimage', 'hlutur', 'price', 'vnr', 'content', 'slug', 'category_id', 'images', 'shell', 'skirt', 'translations', 'order', 'status', 'files'];
 
     public $translatable = [
         'title',
@@ -65,6 +65,18 @@ class Product extends Formable
         }
 
         return $ret;
+    }
+
+    public static function collections()
+    {
+        return [
+            'collection-eldur-og-is' => 'Eldur og ís',
+            'collection-mystic' => 'Dulúð',
+            'collection-straumur' => 'Straumur',
+            'collection-piece-of-iceland' => 'Piece of Iceland',
+            'collection-rock.jpg' => 'Rock',
+            'collection-signs-by-sign' => 'Signs by sign',
+        ];
     }
 
 

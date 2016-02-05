@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->default(0)->unsigned();
             //$table->foreign('category_id')->references('id')->on('categories');
             $table->string('vnr');
+            $table->string('collection');
             $table->integer('price')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('fillimage')->default(0);

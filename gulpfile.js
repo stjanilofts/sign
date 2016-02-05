@@ -5,6 +5,6 @@ elixir(function(mix) {
     .sass('app.scss')
     .browserSync({
     	notify: true,
-    	proxy: 'dunogfidur.dev'
+    	proxy: 'sign.dev'
 	});
 });

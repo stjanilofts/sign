@@ -2,11 +2,11 @@
 
 return [
 
-    'site_title' => 'Dún & fiður',
+    'site_title' => 'Sign',
 
-    'site_description' => 'Dún & fiður',
+    'site_description' => 'Sign',
 
-    'company_name' => 'Dún & fiður',
+    'company_name' => 'Sign',
     'company_email' => 'test@netvistun.is',
 
     'email' => 'test@netvistun.is',

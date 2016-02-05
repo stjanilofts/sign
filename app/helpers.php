@@ -234,6 +234,40 @@ function kalMenuFrom($slug) {
 
 
 
+function kalTopMenu($args = [])
+{
+    $items = \App\Page::where('status', 1)->where('topmenu', 1)->where('parent_id', 0)->get();
+
+    $itemsCount = $items->count();
+
+    $menu = [];
+
+    $count = 0;
+
+    $menu[] = [
+        'hidden_small' => false,
+        'title' => '<i class="uk-icon-home uk-margin-right"></i>Heim',
+        'path' => '/',
+    ];
+
+    foreach($items as $item) {
+        $menu[] = [
+            'hidden_small' => true,
+            'title' => $item->title,
+            'path' => $item->path,
+        ];
+    }
+
+    $menu[] = [
+        'hidden_small' => false,
+        'title' => '<i class="uk-icon-bars uk-margin-right"></i>Meira',
+        'path' => '/',
+    ];
+
+    return $menu;
+}
+
+
 function kalMenu($args = array(), $pages = false, $lvl = 1, &$menu = "", &$paths = array())
 {
     if(isset($args['hidden']) && $args['hidden']) {
