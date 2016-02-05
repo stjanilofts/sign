@@ -7,6 +7,7 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 use App\Traits\ProductOptionsTrait;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Product extends Formable
 {
@@ -20,7 +21,7 @@ class Product extends Formable
 
     protected $table = 'products';
 
-    protected $fillable = ['id', 'title', 'collection', 'features', 'extras', 'options', 'tech', 'sizes', 'fillimage', 'hlutur', 'price', 'vnr', 'content', 'slug', 'category_id', 'images', 'shell', 'skirt', 'translations', 'order', 'status', 'files'];
+    protected $fillable = ['id', 'title', 'konur', 'karlar', 'collection', 'features', 'extras', 'options', 'tech', 'sizes', 'fillimage', 'hlutur', 'price', 'vnr', 'content', 'slug', 'category_id', 'images', 'shell', 'skirt', 'translations', 'order', 'status', 'files'];
 
     public $translatable = [
         'title',
@@ -35,6 +36,17 @@ class Product extends Formable
         'size' => 'Stærð á boxi<br><small>(1 eða 2)</small>',
         'titill' => 'Titill í boxi<br><small>(ef annar en venjulegur titill)</small>',
     ];
+
+
+    public function updateSpecial($request = [])
+    {
+        if($request) {
+            $this->karlar = (array_key_exists('karlar', $request) ? 1 : 0);
+            $this->konur = (array_key_exists('konur', $request) ? 1 : 0);
+            $this->save();
+        }
+    }
+
 
     public function getFeatures()
     {

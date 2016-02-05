@@ -124,6 +124,10 @@ class ItemableController extends Controller
 
         $item->update($request->all());
 
+        if(method_exists($item, 'updateSpecial')) {
+            $item->updateSpecial($request->all());
+        }
+
         $this->defaultUpdate($request, $item);
 
         foreach($item->fields() as $field) {

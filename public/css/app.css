@@ -98,10 +98,10 @@ html {
     left: 0;
     right: 0;
     bottom: 0; }
-  .Boxes .Box:hover:after {
+  .Boxes .Box--shaded:hover:after {
     background: rgba(34, 31, 31, 0.15);
     transition: background 0.5s; }
-  .Boxes .Box:after {
+  .Boxes .Box--shaded:after {
     transition: background 0.5s;
     position: absolute;
     content: "";

@@ -94,9 +94,21 @@ class DatabaseSeeder extends Seeder
         }
 
         function makeProduct($page = []) {
+            $collections = (array)\App\Product::collections();
+            $num = mt_rand(0, (count($collections) -1));
+            $i = 0;
+            $collection = '';
+            foreach($collections as $k => $v) {
+                if($i == $num) {
+                    $collection = $k;
+                }
+                $i++;
+            }
+
             $page['slug'] = isset($page['slug']) ? $page['slug'] : str_slug($page['title']);
             $page['images'] = isset($page['images']) ? $page['images'] : imgs();
             $page['tech'] = isset($page['tech']) ? $page['tech'] : '';
+            $page['collection'] = $collection;
 
             return factory(\App\Product::class)->create($page);
         }

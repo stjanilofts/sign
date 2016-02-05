@@ -7,7 +7,7 @@ foreach(config('formable.hlutir') as $hlutur) {
 
 ?>
 <div class="uk-form-row">
-	<label class="uk-form-label" for="status">Hlutur sem þessi efnislinkur beinir á (ef við á).</label>
+	<label class="uk-form-label" for="hlutur">Hlutur sem þessi efnislinkur beinir á (ef við á).</label>
 	<div class="uk-form-controls">
 		{!! Form::select('hlutur', $hlutir, (isset($item->id) ? $item->hlutur : 'efni')) !!}
 	</div>

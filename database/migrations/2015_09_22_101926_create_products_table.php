@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('vnr');
             $table->string('collection');
             $table->integer('price')->default(0);
+            $table->integer('konur')->default(1);
+            $table->integer('karlar')->default(1);
             $table->integer('featured')->default(0);
             $table->integer('fillimage')->default(0);
             $table->json('images');

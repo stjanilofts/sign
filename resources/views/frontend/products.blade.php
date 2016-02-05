@@ -5,23 +5,30 @@
 @section('content')
 
 	<div class="products">
+        <div class="uk-grid uk-grid-collapse">
+            <div class="uk-width-1-5">
+                test
+            </div>
 
-		<div class="uk-grid uk-grid-medium uk-grid-match" data-uk-grid-margin data-uk-grid-match="{target:'.card'}">
-
-			@foreach($items as $item)
-
-                @include('frontend._card', [
-                    'title' => $item->title,
-                    'slug' => $item->slug,
-                    'size' => $item->size,
-                    'fillimage' => $item->fillimage ? true : false,
-                    'image' => $item->img()->first(),
-                    'path' => '/vorur/'.$item->fullPath(),
-                ])
-
-			@endforeach
-
-		</div>
+            <div class="uk-width-4-5">            
+                <div class="Boxes">
+                    <div class="uk-grid uk-grid-collapse uk-grid-match" data-uk-grid-match="{target:'.Box'}">
+                        @foreach($items as $item)
+                            <div class="uk-width-large-1-3 uk-width-small-1-2">
+                                <div class="Box" style="background-image: url('/imagecache/large/{{ $item->img()->first() }}')">
+                                    <div class="Box--content">
+                                        <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-flex-column">
+                                            <h2>{{ $item->title }}</h2>
+                                            <a href="#" class="Takki">Skoða</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--<pre>
         @{{ item | json 4 }}

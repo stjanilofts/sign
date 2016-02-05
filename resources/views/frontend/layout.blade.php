@@ -94,7 +94,7 @@
                     <div class="uk-grid uk-grid-collapse uk-grid-match" data-uk-grid-match="{target:'.Box'}">
                         @foreach($myndir as $name => $mynd)
                             <div class="uk-width-large-1-3 uk-width-small-1-2">
-                                <div class="Box" style="background-image: url('/imagecache/large/{{ $mynd }}')">
+                                <div class="Box Box--shaded" style="background-image: url('/imagecache/large/{{ $mynd }}')">
                                     <div class="Box--content">
                                         <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-flex-column">
                                             <h2>{{ $name }}</h2>

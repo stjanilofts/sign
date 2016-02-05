@@ -146,23 +146,25 @@ html {
 		background-position: center center;
 		z-index: 0;
 
-		&:hover {
-			&:after {
-				background: rgba($dark, 0.15);
-				transition: background 0.5s;
+		&--shaded {
+			&:hover {
+				&:after {
+					background: rgba($dark, 0.15);
+					transition: background 0.5s;
+				}
 			}
-		}
 
-		&:after {
-			transition: background 0.5s;
-			position: absolute;
-			content: "";
-			z-index: -1;
-			background: rgba($dark, 0.5);
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
+			&:after {
+				transition: background 0.5s;
+				position: absolute;
+				content: "";
+				z-index: -1;
+				background: rgba($dark, 0.5);
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
 		}
 	}
 }

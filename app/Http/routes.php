@@ -1,7 +1,7 @@
 <?php
 
-Route::get('vorur', 'VorukerfiController@index');
-Route::get('vorur/{slug?}', 'VorukerfiController@show')->where(['slug' => '.*']);
+Route::get('vefverslun', 'VorukerfiController@index');
+Route::get('vefverslun/{slug?}', 'VorukerfiController@show')->where(['slug' => '.*']);
 
 Route::get('/', 'HomeController@home');
 
