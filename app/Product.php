@@ -86,7 +86,7 @@ class Product extends Formable
             'collection-mystic' => 'Dulúð',
             'collection-straumur' => 'Straumur',
             'collection-piece-of-iceland' => 'Piece of Iceland',
-            'collection-rock.jpg' => 'Rock',
+            'collection-rock' => 'Rock',
             'collection-signs-by-sign' => 'Signs by sign',
         ];
     }

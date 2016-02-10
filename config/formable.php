@@ -37,7 +37,8 @@ return [
     'locales' => ['is', 'en'],
 
     'flagicons' => [
-        'is' => 'flagicons/Iceland.png'
+        'is' => 'flagicons/Iceland.png',
+        'en' => 'flagicons/England.png',
     ],
 
 

@@ -109,6 +109,8 @@ class DatabaseSeeder extends Seeder
             $page['images'] = isset($page['images']) ? $page['images'] : imgs();
             $page['tech'] = isset($page['tech']) ? $page['tech'] : '';
             $page['collection'] = $collection;
+            $page['karlar'] = (mt_rand(0,1));
+            $page['konur'] = (mt_rand(0,1));
 
             return factory(\App\Product::class)->create($page);
         }

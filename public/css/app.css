@@ -98,6 +98,8 @@ html {
     left: 0;
     right: 0;
     bottom: 0; }
+  .Boxes .Box--alt h1, .Boxes .Box--alt h2, .Boxes .Box--alt h3, .Boxes .Box--alt h4, .Boxes .Box--alt h5, .Boxes .Box--alt h6 {
+    color: #221f1f; }
   .Boxes .Box--shaded:hover:after {
     background: rgba(34, 31, 31, 0.15);
     transition: background 0.5s; }
