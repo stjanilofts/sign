@@ -143,17 +143,26 @@ html {
 		margin: 0;
 	}
 	li {
-		padding-top: 0.5em;
-		padding-bottom: 0.5em;
 		i {
 			width: 16px;
 			text-align: center;
 		}
 		a {
+			padding: 0.5em;
+			display: block;
 			color: $dark;
-			&:hover {
+			transition: padding 0.15s;
+			position: relative;
+			&.filter-active, &:hover {
+				padding-left: 2em;
 				color: $dark;
 				text-decoration: none;
+			}
+			&.filter-active:before {
+				font-family: FontAwesome;
+				position: absolute;
+				left: 0.5em;
+				content: "\f00c";
 			}
 		}
 		display: block;
@@ -164,10 +173,19 @@ html {
 .Badge {
 	z-index: 1;
 	position: absolute;
-	top: 0;
-	left: 0;
+
+	&--collection {
+		top: 1em;
+		right: 1em;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+	}
 
 	&--kyn {
+		width: 16px;
+		height: 16px;
+		text-align: center;
 		top: 1em;
 		left: 1em;
 	}
@@ -192,7 +210,8 @@ html {
 
 		&--image {
 			@include aspect-ratio(5,6);
-			box-shadow: 0px 0px 3px rgba($dark, 0.3);
+			border-radius: 4px;
+			box-shadow: 0px 0px 8px rgba($dark, 0.2);
 			/*border: 1px solid #EEE;*/
 			display: block;
 			background-size: cover;

@@ -4,6 +4,12 @@
 
 @section('content')
 
+    <?php
+
+    $collections = \App\Product::collections();
+
+    ?>
+
 	<div class="products">
         <div class="uk-grid uk-grid-collapse">
             <div class="uk-width-large-1-5">
@@ -12,14 +18,15 @@
                 <div>
                     <strong>Kyn</strong>
                     <ul class="grid-filter">
+                        <li data-group="kyn" data-filter=""><a class="filter-active"><i class="uk-icon-genderless uk-margin-right"></i>Ekki valið</a></li>
                         <li data-group="kyn" data-filter="karlar"><a><i class="uk-icon-male uk-margin-right"></i>Karlar</a></li>
                         <li data-group="kyn" data-filter="konur"><a><i class="uk-icon-female uk-margin-right"></i>Konur</a></li>
                     </ul>
 
-                    <stong>Lína</strong>
+                    <strong>Lína</strong>
                     <ul class="grid-filter">
-                        <li data-group="collection" style="" data-filter=""><a>Allt</a></li>
-                        @foreach(\App\Product::collections() as $k => $v)
+                        <li data-group="collection" style="" data-filter=""><a class="filter-active">Allt</a></li>
+                        @foreach($collections as $k => $v)
                             <li data-group="collection" style="background-color: {{ $v['color'] }};" data-filter="{{ $k }}"><a>{{ $v['title'] }}</a></li>
                         @endforeach
                     </ul>
@@ -36,6 +43,8 @@
                     $('.grid-filter a').click(function() {
                         $('.filtered-product').hide();
 
+                        $anchor = $(this);
+
                         var ctx = $(this).parents('li')
 
                         group = ctx.attr('data-group')
@@ -43,15 +52,18 @@
 
                         if(groups[group] && groups[group].trim() === filter.trim()) {
                             groups[group] = '';
+                            $anchor.removeClass('filter-active');
                         } else {
                             groups[group] = filter.trim();
+                            $('.grid-filter a').removeClass('filter-active');
+                            $anchor.addClass('filter-active');
                         }
 
-                        $('#texti').html('');
+                        /*$('#texti').html('');
 
                         for(k in groups) {
                             $('#texti').append(k + ': ' + groups[k] + '<br>');
-                        }
+                        }*/
 
                         $.each($('.filtered-product'), function(i, v) {
                             var $el = $(v);
@@ -117,6 +129,13 @@
                                             {{--@else
                                                 <span data-uk-tooltip title="Bæði kyn"><i class="uk-icon-genderless"></i></span>
                                             @endif--}}
+                                        </div>
+                                    @endif
+
+                                    @if(isset($item->collection) && $item->collection)
+                                        <div class="Badge Badge--collection"
+                                             data-uk-tooltip title="{{ $collections[$item->collection]['title'] }}"
+                                             style="background-color: {{ $collections[$item->collection]['color'] }};">
                                         </div>
                                     @endif
 
