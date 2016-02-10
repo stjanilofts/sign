@@ -82,12 +82,30 @@ class Product extends Formable
     public static function collections()
     {
         return [
-            'collection-eldur-og-is' => 'Eldur og ís',
-            'collection-mystic' => 'Dulúð',
-            'collection-straumur' => 'Straumur',
-            'collection-piece-of-iceland' => 'Piece of Iceland',
-            'collection-rock' => 'Rock',
-            'collection-signs-by-sign' => 'Signs by sign',
+            'collection-eldur-og-is' => [
+                'title' => 'Eldur og ís',
+                'color' => '#FFCC00',
+            ],
+            'collection-mystic' => [
+                'title' => 'Dulúð',
+                'color' => '#ADADAD',
+            ],
+            'collection-straumur' => [
+                'title' => 'Straumur',
+                'color' => '#EAEAEA',
+            ],
+            'collection-piece-of-iceland' => [
+                'title' => 'Piece of Iceland',
+                'color' => '#DDDDDD',
+            ],
+            'collection-rock' => [
+                'title' => 'Rock',
+                'color' => '#EEEEEE',
+            ],
+            'collection-signs-by-sign' => [
+                'title' => 'Signs by sign',
+                'color' => '#888888',
+            ],
         ];
     }
 

@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
 
         function makeProduct($page = []) {
             $collections = (array)\App\Product::collections();
-            $num = mt_rand(0, (count($collections) -1));
+            $num = mt_rand(0, (count($collections) - 1));
             $i = 0;
             $collection = '';
             foreach($collections as $k => $v) {

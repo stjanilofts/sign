@@ -21,14 +21,14 @@ html {
     font-size: 2rem;
     line-height: 3rem; }
   html h3 {
-    font-size: 1.8rem;
-    line-height: 2.8rem; }
+    font-size: 1.5rem;
+    line-height: 2.5rem; }
   html h4 {
-    font-size: 1.6rem;
-    line-height: 2.6rem; }
-  html h5 {
     font-size: 1.4rem;
     line-height: 2.4rem; }
+  html h5 {
+    font-size: 1.3rem;
+    line-height: 2.3rem; }
   html h6 {
     font-size: 1.2rem;
     line-height: 2.2rem; }
@@ -68,7 +68,7 @@ html {
     border: 1px solid rgba(34, 31, 31, 0.9); }
 
 .Haus {
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   background: rgba(34, 31, 31, 0);
   top: 0;
@@ -79,12 +79,85 @@ html {
     background: #221f1f;
     position: relative; }
 
+.grid-filter {
+  padding: 1em; }
+  .grid-filter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+  .grid-filter li {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    display: block;
+    clear: both; }
+    .grid-filter li i {
+      width: 16px;
+      text-align: center; }
+    .grid-filter li a {
+      color: #221f1f; }
+      .grid-filter li a:hover {
+        color: #221f1f;
+        text-decoration: none; }
+
+.Badge {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .Badge--kyn {
+    top: 1em;
+    left: 1em; }
+
+.Boxes--products {
+  padding: 1em; }
+
+.Boxes .Product {
+  position: relative;
+  box-sizing: border-box; }
+  .Boxes .Product h1, .Boxes .Product h2, .Boxes .Product h3, .Boxes .Product h4, .Boxes .Product h5, .Boxes .Product h6 {
+    text-align: center;
+    color: #221f1f; }
+    .Boxes .Product h1 a, .Boxes .Product h2 a, .Boxes .Product h3 a, .Boxes .Product h4 a, .Boxes .Product h5 a, .Boxes .Product h6 a {
+      color: #221f1f;
+      text-decoration: none; }
+  .Boxes .Product--image {
+    position: relative;
+    box-shadow: 0px 0px 3px rgba(34, 31, 31, 0.3);
+    /*border: 1px solid #EEE;*/
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    z-index: 0; }
+    .Boxes .Product--image:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 120%; }
+    .Boxes .Product--image--content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+  .Boxes .Product--content {
+    position: relative;
+    text-align: center; }
+    .Boxes .Product--content .title {
+      padding-left: 1em;
+      padding-right: 1em; }
+      .Boxes .Product--content .title h1, .Boxes .Product--content .title h2, .Boxes .Product--content .title h3, .Boxes .Product--content .title h4, .Boxes .Product--content .title h5, .Boxes .Product--content .title h6 {
+        line-height: 2rem !important;
+        padding: 0;
+        margin: 0; }
+
 .Boxes .Box {
+  position: relative;
   position: relative;
   background-size: cover;
   background-position: center center;
   z-index: 0; }
   .Boxes .Box h1, .Boxes .Box h2, .Boxes .Box h3, .Boxes .Box h4, .Boxes .Box h5, .Boxes .Box h6 {
+    text-align: center;
     text-transform: uppercase;
     color: #FFF; }
   .Boxes .Box:before {
@@ -98,8 +171,6 @@ html {
     left: 0;
     right: 0;
     bottom: 0; }
-  .Boxes .Box--alt h1, .Boxes .Box--alt h2, .Boxes .Box--alt h3, .Boxes .Box--alt h4, .Boxes .Box--alt h5, .Boxes .Box--alt h6 {
-    color: #221f1f; }
   .Boxes .Box--shaded:hover:after {
     background: rgba(34, 31, 31, 0.15);
     transition: background 0.5s; }
@@ -119,12 +190,16 @@ html {
   height: 500px; }
 
 .Content {
-  min-height: 800px;
+  min-height: 100vh;
   background: #FFF; }
 
 header {
+  padding-top: 1em;
+  padding-bottom: 1em;
   background: #181010; }
   header h1 {
+    padding: 0;
+    margin: 0;
     text-align: center;
     color: #FFF; }
 

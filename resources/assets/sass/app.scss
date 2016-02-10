@@ -58,16 +58,16 @@ html {
 		line-height: 3rem;
 	}
 	h3 {
-		font-size: 1.8rem;
-		line-height: 2.8rem;
+		font-size: 1.5rem;
+		line-height: 2.5rem;
 	}
 	h4 {
-		font-size: 1.6rem;
-		line-height: 2.6rem;
-	}
-	h5 {
 		font-size: 1.4rem;
 		line-height: 2.4rem;
+	}
+	h5 {
+		font-size: 1.3rem;
+		line-height: 2.3rem;
 	}
 	h6 {
 		font-size: 1.2rem;
@@ -123,7 +123,7 @@ html {
 		/*outline: 1px solid lime;*/
 	}
 
-	z-index: 10;
+	z-index: 100;
 	position: absolute;
 	background: rgba($dark, 0);
 	top: 0;
@@ -135,22 +135,101 @@ html {
 	}
 }
 
+.grid-filter {
+	padding: 1em;
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		i {
+			width: 16px;
+			text-align: center;
+		}
+		a {
+			color: $dark;
+			&:hover {
+				color: $dark;
+				text-decoration: none;
+			}
+		}
+		display: block;
+		clear: both;
+	}
+}
+
+.Badge {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	&--kyn {
+		top: 1em;
+		left: 1em;
+	}
+}
+
 .Boxes {
-	.Box {
+	&--products {
+		padding: 1em;
+	}
+	.Product {
+		position: relative;
+		box-sizing: border-box;
+		
 		h1, h2, h3, h4, h5, h6 {
+			text-align: center;
+			color: $dark;
+			a {
+				color: $dark;
+				text-decoration: none;
+			}
+		}
+
+		&--image {
+			@include aspect-ratio(5,6);
+			box-shadow: 0px 0px 3px rgba($dark, 0.3);
+			/*border: 1px solid #EEE;*/
+			display: block;
+			background-size: cover;
+			background-position: center center;
+			z-index: 0;
+		}
+
+		&--content {
+			position: relative;
+			text-align: center;
+
+			.title {
+				padding-left: 1em;
+				padding-right: 1em;
+				h1, h2, h3, h4, h5, h6 {
+					line-height: 2rem !important;
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	.Box {
+		position: relative;
+
+		h1, h2, h3, h4, h5, h6 {
+			text-align: center;
 			text-transform: uppercase;
 			color: #FFF;
 		}
+
 		@include aspect-ratio(4, 3);
+
 		background-size: cover;
 		background-position: center center;
 		z-index: 0;
-
-		&--alt {
-			h1, h2, h3, h4, h5, h6 {
-				color: $dark;
-			}
-		}
 
 		&--shaded {
 			&:hover {
@@ -181,14 +260,18 @@ html {
 }
 
 .Content {
-	min-height: 800px;
+	min-height: 100vh;
 	background: #FFF;
 }
 
 header {
+	padding-top: 1em;
+	padding-bottom: 1em;
 	background: $dark-darker;
 
 	h1 {
+		padding: 0;
+		margin: 0;
 		text-align: center;
 		color: #FFF;
 	}
