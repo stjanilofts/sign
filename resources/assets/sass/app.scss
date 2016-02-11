@@ -20,6 +20,7 @@
 $dark: #221f1f;
 $dark-darker: #181010;
 $dark-lighter: #635A5A;
+$dark-lighter2: lighten(#635A5A, 60%);
 $max-width: 1600px;
 $base: 18px;
 
@@ -144,6 +145,7 @@ html {
 	border-right: 1px solid rgba($dark, 0.1);
 	border-bottom: 1px solid rgba($dark, 0.1);
 	padding: 0.5em;
+	background: #FFF;
 }
 
 .grid-filter {
@@ -287,8 +289,14 @@ html {
 }
 
 .Content {
+	a {
+		color: $dark;
+		&:hover {
+			color: $dark;
+		}
+	}
+	background: $dark-lighter2;
 	min-height: 100vh;
-	background: #FFF;
 }
 
 header {
@@ -347,19 +355,18 @@ nav {
 			display: block;
 		}
 		ul li a span {
-			padding-left: 0.5em;
 		}
 		ul li ul li a span {
-			padding-left: 1em;
+			padding-left: 0.5em;
 		}
 		ul li ul li ul li a span {
-			padding-left: 1.5em;
+			padding-left: 1em;
 		}
 		ul li ul li ul li ul li a span {
-			padding-left: 2em;
+			padding-left: 1.5em;
 		}
 		ul li ul li ul li ul li ul li a span {
-			padding-left: 2.5em;
+			padding-left: 2em;
 		}
 		ul {
 			list-style: none;
@@ -395,7 +402,7 @@ nav {
 			display: block;
 			color: $dark;
 			&:hover {
-				color: $dark;
+				background: $dark-lighter2;
 				text-decoration: none;
 			}
 		}

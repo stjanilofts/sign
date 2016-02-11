@@ -23,112 +23,60 @@
                         </nav>
                     </div>
 
-                    <div class="filteritem uk-visible-large">
-                        <h5 class="uk-text-center">Kyn</h5>
-                        <ul class="grid-filter">
-                            <li data-group="kyn" data-filter=""><a class="default filter-active"><i class="uk-icon-genderless uk-margin-right"></i>Öll kyn</a></li>
-                            <li data-group="kyn" data-filter="karlar"><a><i class="uk-icon-male uk-margin-right"></i>Karlar</a></li>
-                            <li data-group="kyn" data-filter="konur"><a><i class="uk-icon-female uk-margin-right"></i>Konur</a></li>
-                        </ul>
-                    </div>
+                    <div id="filters">
+                        <div class="filteritem uk-visible-large">
+                            <h5 class="uk-text-center">Kyn</h5>
+                            <ul class="grid-filter">
+                                <li data-group="kyn" data-filter=""><a @click.prevent="addFilter" class="default filter-active"><i class="uk-icon-genderless uk-margin-right"></i>Öll kyn</a></li>
+                                <li data-group="kyn" data-filter="karlar"><a @click.prevent="addFilter"><i class="uk-icon-male uk-margin-right"></i>Karlar</a></li>
+                                <li data-group="kyn" data-filter="konur"><a @click.prevent="addFilter"><i class="uk-icon-female uk-margin-right"></i>Konur</a></li>
+                            </ul>
+                        </div>
 
-                    <div class="filteritem uk-visible-large">
-                        <h5 class="uk-text-center">Lína</h5>
-                        <ul class="grid-filter">
-                            <li data-group="collection" style="" data-filter=""><a class="default filter-active">Allar línur</a></li>
-                            @foreach($collections as $k => $v)
-                                <li data-group="collection" style="background-color: {{ $v['color'] }};" data-filter="{{ $k }}"><a>{{ $v['title'] }}</a></li>
-                            @endforeach
-                        </ul>
+                        <div class="filteritem uk-visible-large">
+                            <h5 class="uk-text-center">Lína</h5>
+                            <ul class="grid-filter">
+                                <li data-group="collection" style="" data-filter=""><a @click.prevent="addFilter" class="default filter-active">Allar línur</a></li>
+                                @foreach($collections as $k => $v)
+                                    <li data-group="collection" style="background-color: {{ $v['color'] }};" data-filter="{{ $k }}"><a @click.prevent="addFilter">{{ $v['title'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        
+                        {{--
+                        <pre>
+
+                        @{{ filterCount | json 4 }}
+
+                        @{{ filters | json 4 }}
+
+                        </pre>
+                        --}}
+
+                        
                     </div>
                 </div>
-
-                <script>
-                $(document).ready(function() {
-                    /*$('[data-uk-grid]').on('beforeupdate.uk.grid', function(e, children) {
-                        console.log(children);
-                    });*/
-
-                    var groups = [];
-
-                    $('.grid-filter a').click(function() {
-                        $('.filtered-product').hide();
-
-                        $anchor = $(this);
-
-                        var ctx = $(this).parents('li')
-
-                        group = ctx.attr('data-group')
-                        filter = ctx.attr('data-filter')
-
-                        if(groups[group] && groups[group].trim() === filter.trim()) {
-                            //groups[group] = '';
-                            //$anchor.removeClass('filter-active');
-                        } else {
-                            groups[group] = filter.trim();
-                            $('.grid-filter a').removeClass('filter-active');
-                            $anchor.addClass('filter-active');
-                        }
-
-                        if( ! ($('.grid-filter a').hasClass('filter-active'))) {
-                            $('.grid-filter a.default').addClass('filter-active');
-                        }
-
-                        /*$('#texti').html('');
-
-                        for(k in groups) {
-                            $('#texti').append(k + ': ' + groups[k] + '<br>');
-                        }*/
-
-                        $.each($('.filtered-product'), function(i, v) {
-                            var $el = $(v);
-
-                            var matchedElements = [];
-
-                            var counter = 0;
-                            var requiredMatches = 0;
-                            var foundMatches = 0;
-
-                            for(var k in groups) {
-                                var filters = $el.attr('data-filter-' + k).trim().split(' ')
-                                
-                                if(filters.length && groups[k].trim() != '') {
-                                    requiredMatches++;
-
-                                    for(var f in filters) {
-                                        var _filter = filters[f].trim();
-                                        
-                                        if(_filter != '') {
-                                            if(groups[k] == _filter) {
-                                                foundMatches++;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            if(requiredMatches == foundMatches) {
-                                $el.show();
-                                //UIkit.$html.trigger('changed.uk.dom');
-                            }
-                        })
-                    })
-                })
-                </script>
             </div>
 
             <div class="uk-width-large-4-5">
                 <div class="Boxes" style="padding: 10px;">
+                    <div v-if="matchedFilters < 1" class="uk-text-large uk-text-bold uk-margin-bottom">
+                        <div><i class="uk-icon-question-circle uk-margin-right"></i>Ekkert fannst með þessum síum! <a @click="clearFilters">Smelltu hér</a> til að taka burt síur.</div>
+                    </div>
+
                     <div class="uk-grid uk-grid-small uk-grid-match filtered-products" data-uk-grid-match="{target:'.Product'}">                    
                         @foreach($items as $item)   
                             <?php
+
+                            $isCategory = ($item->modelName() == 'Category');
 
                             $path = $item->fullPath();
                             $kyn = (isset($item->karlar) && $item->karlar > 0 ? 'karlar ' : '')
                                   .(isset($item->konur) && $item->konur > 0 ? 'konur ' : '');
 
                             ?>
-                            <div class="filtered-product uk-width-large-1-4 uk-width-medium-1-3 uk-width-small-1-2"
+                            <div class="filtered-product {{ $isCategory ? 'category' : 'product' }} uk-width-large-1-4 uk-width-medium-1-3 uk-width-small-1-2"
                                  data-filter-collection="{{ isset($item->collection) && $item->collection ? $item->collection : '' }}"
                                  data-filter-kyn="{{ $kyn }}">
                                 <div class="Product">
@@ -140,7 +88,7 @@
                                             <span data-uk-tooltip title="Karlar"><i class="uk-icon-male"></i></span>
                                         @endif
 
-                                        @if(($item->modelName() !== 'Category') && !$item->konur && !$item->karlar)
+                                        @if(!$isCategory && !$item->konur && !$item->karlar)
                                             <span data-uk-tooltip title="Öll kyn"><i class="uk-icon-genderless"></i></span>
                                         @endif
                                     </div>
@@ -186,13 +134,101 @@
 
         data: {
             added: false,
-            isProcessing: false
+            isProcessing: false,
+
+            filters: {
+                collection: '',
+                kyn: ''
+            },
+
+            matchedFilters: 1
         },
 
         ready: function() { 
         },
 
+        computed: {
+            filterCount: function() {
+                var count = 0;
+
+                for(var i in this.filters) {
+                    if(this.filters[i] != '') count++;
+                }
+
+                return count;
+            }
+        },
+
         methods: {
+            clearFilters: function() {
+                for(v in this.filters) {
+                    this.filters[v] = '';
+                }
+
+                this.matchedFilters = 1;
+
+                $('.grid-filter').find('li > a').removeClass('filter-active');
+                $('.grid-filter').find('li > a.default').addClass('filter-active');
+
+                this.reFilter();
+            },
+
+            addFilter: function(event) {
+                $el = $(event.target)
+
+                var ctx = $el.parents('li')
+
+                var group = ctx.attr('data-group')
+                var filter = ctx.attr('data-filter')
+
+                ctx.siblings().find('a').removeClass('filter-active');
+
+                ctx.find('a').addClass('filter-active');
+
+                this.filters[group] = filter;
+
+                this.reFilter();
+            },
+
+            matchFilter: function($elem) {
+                var found = 0
+
+                for(var f in this.filters) {
+                    if(this.filters[f] != '') {
+                        var filters = $elem.attr('data-filter-' + f)
+                        
+                        var filterArray = filters.split(' ');
+
+                        for(var v in filterArray) {
+                            var _filter = filterArray[v].trim();
+
+                            if(_filter != '') {
+                                if(_filter == this.filters[f]) {
+                                    found++;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return this.filterCount == found
+            },
+
+            reFilter: function() {
+                this.matchedFilters = 0
+
+                $.each($('.filtered-product.product'), function(i, v) {
+                    if(this.matchFilter($(v))) {
+                        this.matchedFilters++;
+                        $(v).show()
+                    } else {
+                        $(v).hide()
+                    }
+                }.bind(this))
+
+                console.log(this.matchedFilters);
+            },
+
             incrQty: function(event) {
                 var $el = $(event.target);
                 var $inp = $el.parents('[data-product-id]').find('input');

@@ -82,7 +82,8 @@ html {
 .filteritem {
   border-right: 1px solid rgba(34, 31, 31, 0.1);
   border-bottom: 1px solid rgba(34, 31, 31, 0.1);
-  padding: 0.5em; }
+  padding: 0.5em;
+  background: #FFF; }
   .filteritem ul {
     list-style: none;
     padding: 0;
@@ -212,8 +213,12 @@ html {
   height: 500px; }
 
 .Content {
-  min-height: 100vh;
-  background: #FFF; }
+  background: #f8f7f7;
+  min-height: 100vh; }
+  .Content a {
+    color: #221f1f; }
+    .Content a:hover {
+      color: #221f1f; }
 
 header {
   padding-top: 1em;
@@ -254,20 +259,17 @@ header {
 nav.leftmenu ul li a span {
   display: block; }
 
-nav.leftmenu ul li a span {
+nav.leftmenu ul li ul li a span {
   padding-left: 0.5em; }
 
-nav.leftmenu ul li ul li a span {
+nav.leftmenu ul li ul li ul li a span {
   padding-left: 1em; }
 
-nav.leftmenu ul li ul li ul li a span {
+nav.leftmenu ul li ul li ul li ul li a span {
   padding-left: 1.5em; }
 
-nav.leftmenu ul li ul li ul li ul li a span {
-  padding-left: 2em; }
-
 nav.leftmenu ul li ul li ul li ul li ul li a span {
-  padding-left: 2.5em; }
+  padding-left: 2em; }
 
 nav.leftmenu ul {
   list-style: none;
@@ -296,7 +298,7 @@ nav.leftmenu a {
   display: block;
   color: #221f1f; }
   nav.leftmenu a:hover {
-    color: #221f1f;
+    background: #f8f7f7;
     text-decoration: none; }
 
 nav.top {

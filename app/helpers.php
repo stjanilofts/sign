@@ -850,7 +850,7 @@ function kalCategoryMenu($parent_id = 0, $lvl = 0) {
         $class .= $isActive ? 'active ' : '';
         $class .= $isBeingViewed ? 'being-viewed ' : '';
 
-        echo '<li class="'.$class.'"><a href="/vefverslun/allar-vorur"><span>Sjá allar vörur</span></a>';
+        echo '<li class="'.$class.'"><a href="/vefverslun/allar-vorur"><span>Allar vörur</span></a>';
     }
 
     echo '</ul>';
