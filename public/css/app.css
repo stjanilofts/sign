@@ -79,33 +79,41 @@ html {
     background: #221f1f;
     position: relative; }
 
-.grid-filter {
-  padding: 1em; }
-  .grid-filter ul {
+.filteritem {
+  border-right: 1px solid rgba(34, 31, 31, 0.1);
+  border-bottom: 1px solid rgba(34, 31, 31, 0.1);
+  padding: 0.5em; }
+  .filteritem ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-  .grid-filter li {
+
+.grid-filter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.grid-filter li {
+  display: block;
+  clear: both; }
+  .grid-filter li i {
+    width: 16px;
+    text-align: center; }
+  .grid-filter li a {
+    padding: 0.5em;
     display: block;
-    clear: both; }
-    .grid-filter li i {
-      width: 16px;
-      text-align: center; }
-    .grid-filter li a {
-      padding: 0.5em;
-      display: block;
+    color: #221f1f;
+    transition: padding 0.15s;
+    position: relative; }
+    .grid-filter li a.filter-active, .grid-filter li a:hover {
+      padding-left: 2em;
       color: #221f1f;
-      transition: padding 0.15s;
-      position: relative; }
-      .grid-filter li a.filter-active, .grid-filter li a:hover {
-        padding-left: 2em;
-        color: #221f1f;
-        text-decoration: none; }
-      .grid-filter li a.filter-active:before {
-        font-family: FontAwesome;
-        position: absolute;
-        left: 0.5em;
-        content: "\f00c"; }
+      text-decoration: none; }
+    .grid-filter li a.filter-active:before {
+      font-family: FontAwesome;
+      position: absolute;
+      left: 0.5em;
+      content: "\f00c"; }
 
 .Badge {
   z-index: 1;
@@ -117,8 +125,6 @@ html {
     height: 16px;
     border-radius: 50%; }
   .Badge--kyn {
-    width: 16px;
-    height: 16px;
     text-align: center;
     top: 1em;
     left: 1em; }
@@ -244,6 +250,54 @@ header {
   max-width: 1600px;
   position: relative;
   margin: 0 auto; }
+
+nav.leftmenu ul li a span {
+  display: block; }
+
+nav.leftmenu ul li a span {
+  padding-left: 0.5em; }
+
+nav.leftmenu ul li ul li a span {
+  padding-left: 1em; }
+
+nav.leftmenu ul li ul li ul li a span {
+  padding-left: 1.5em; }
+
+nav.leftmenu ul li ul li ul li ul li a span {
+  padding-left: 2em; }
+
+nav.leftmenu ul li ul li ul li ul li ul li a span {
+  padding-left: 2.5em; }
+
+nav.leftmenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(34, 31, 31, 0.1); }
+  nav.leftmenu ul ul {
+    border-top: 0px solid rgba(34, 31, 31, 0.1); }
+
+nav.leftmenu li {
+  padding: 0;
+  margin: 0; }
+  nav.leftmenu li.active > a {
+    font-weight: bold; }
+  nav.leftmenu li.being-viewed > a {
+    font-weight: bold;
+    background: #221f1f;
+    color: #FFF; }
+
+nav.leftmenu a {
+  text-transform: uppercase;
+  border: 1px solid rgba(34, 31, 31, 0.1);
+  border-top: 0px solid #FFF;
+  padding: 0.5em;
+  margin: 0;
+  display: block;
+  color: #221f1f; }
+  nav.leftmenu a:hover {
+    color: #221f1f;
+    text-decoration: none; }
 
 nav.top {
   display: -webkit-flex;

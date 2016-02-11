@@ -154,7 +154,19 @@ class DatabaseSeeder extends Seeder
         }
 
         $flokkur1 = makeCategory(['title' => 'Flokkur 1', 'images' => getImages(3)]);
+            $flokkur1_1 = makeCategory(['parent_id' => $flokkur1->id, 'title' => 'Flokkur 1-1', 'images' => getImages(3)]);
+            $flokkur1_2 = makeCategory(['parent_id' => $flokkur1->id, 'title' => 'Flokkur 1-2', 'images' => getImages(3)]);
+            $flokkur1_3 = makeCategory(['parent_id' => $flokkur1->id, 'title' => 'Flokkur 1-3', 'images' => getImages(3)]);
         $flokkur2 = makeCategory(['title' => 'Flokkur 2', 'images' => getImages(3)]);
+        $flokkur3 = makeCategory(['title' => 'Flokkur 3', 'images' => getImages(3)]);
+        $flokkur4 = makeCategory(['title' => 'Flokkur 4', 'images' => getImages(3)]);
+            $flokkur4_1 = makeCategory(['parent_id' => $flokkur4->id, 'title' => 'Flokkur 4-1', 'images' => getImages(3)]);
+            $flokkur4_2 = makeCategory(['parent_id' => $flokkur4->id, 'title' => 'Flokkur 4-2', 'images' => getImages(3)]);
+                $flokkur4_2_1 = makeCategory(['parent_id' => $flokkur4_2->id, 'title' => 'Flokkur 4-2-1', 'images' => getImages(3)]);
+                $flokkur4_2_2 = makeCategory(['parent_id' => $flokkur4_2->id, 'title' => 'Flokkur 4-2-2', 'images' => getImages(3)]);
+            $flokkur4_3 = makeCategory(['parent_id' => $flokkur4->id, 'title' => 'Flokkur 4-3', 'images' => getImages(3)]);
+            $flokkur4_4 = makeCategory(['parent_id' => $flokkur4->id, 'title' => 'Flokkur 4-4', 'images' => getImages(3)]);
+        $flokkur5 = makeCategory(['title' => 'Flokkur 5', 'images' => getImages(3)]);
 
         foreach(getImages() as $image) {
             makeProduct([

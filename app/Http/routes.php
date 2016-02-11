@@ -1,6 +1,7 @@
 <?php
 
 Route::get('vefverslun', 'VorukerfiController@index');
+Route::get('vefverslun/allar-vorur', 'VorukerfiController@allarvorur');
 Route::get('vefverslun/{slug?}', 'VorukerfiController@show')->where(['slug' => '.*']);
 
 Route::get('/', 'HomeController@home');

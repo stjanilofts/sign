@@ -802,3 +802,56 @@ function renderSitemap($items = false, $args = []) {
     
     echo '</ul>';
 }
+
+
+
+
+
+
+
+
+
+
+function kalCategoryMenu($parent_id = 0, $lvl = 0) {
+    $cats = \App\Category::where('parent_id', $parent_id)->get();
+
+    if( ! $cats) return;
+
+    echo '<ul>';
+
+    foreach($cats as $cat) {
+        $fullpath = $cat->fullpath();
+
+        $class = 'lvl-'.$lvl.' ';
+
+        $isActive       = Request::is('vefverslun/'.rtrim($fullpath, '/').'*') ? true : false;
+        $isBeingViewed  = Request::is('vefverslun/'.rtrim($fullpath, '/')) ? true : false;
+
+        $class .= $isActive ? 'active ' : '';
+        $class .= $isBeingViewed ? 'being-viewed ' : '';
+
+        echo '<li class="'.$class.'"><a href="/vefverslun/'.$fullpath.'"><span>'.$cat->title.'</span></a>';
+
+        if($isActive && $cat->getSubs()) {
+            $lvl++;
+            kalCategoryMenu($cat->id, $lvl);
+            $lvl--;
+        }
+
+        echo '</li>';
+    }
+
+    if($lvl < 1) {
+        $class = '';
+
+        $isActive       = Request::is('vefverslun/allar-vorur') ? true : false;
+        $isBeingViewed  = Request::is('vefverslun/allar-vorur') ? true : false;
+
+        $class .= $isActive ? 'active ' : '';
+        $class .= $isBeingViewed ? 'being-viewed ' : '';
+
+        echo '<li class="'.$class.'"><a href="/vefverslun/allar-vorur"><span>Sjá allar vörur</span></a>';
+    }
+
+    echo '</ul>';
+}

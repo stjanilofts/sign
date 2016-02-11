@@ -26,6 +26,18 @@ class VorukerfiController extends Controller
         return view('frontend.products')->with($data);
     }
 
+    public function allarvorur()
+    {
+        //$cats   = \App\Category::where('status', 1)->orderBy('category_id')->get();
+        $prods  = \App\Product::where('status', 1)->orderBy('category_id')->orderBy('order')->get();
+
+        $data['items'] = $prods;
+
+        $data['pagetitle'] = 'Allar vörur';
+
+        return view('frontend.products')->with($data);
+    }
+
     // Sýnir annaðhvort vöru eða flokk
     public function show($slug)
     {

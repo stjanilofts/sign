@@ -16,20 +16,31 @@
                 <!--<div id="texti"></div>-->
                 <!--<div data-uk-sticky="{top: 120, boundary: true}">-->
                 <div>
-                    <strong>Kyn</strong>
-                    <ul class="grid-filter">
-                        <li data-group="kyn" data-filter=""><a class="filter-active"><i class="uk-icon-genderless uk-margin-right"></i>Ekki valið</a></li>
-                        <li data-group="kyn" data-filter="karlar"><a><i class="uk-icon-male uk-margin-right"></i>Karlar</a></li>
-                        <li data-group="kyn" data-filter="konur"><a><i class="uk-icon-female uk-margin-right"></i>Konur</a></li>
-                    </ul>
+                    <div class="filteritem">
+                        <nav class="leftmenu">
+                            <h5 class="uk-text-center">Flokkar</h5>
+                            {!! kalCategoryMenu() !!}
+                        </nav>
+                    </div>
 
-                    <strong>Lína</strong>
-                    <ul class="grid-filter">
-                        <li data-group="collection" style="" data-filter=""><a class="filter-active">Allt</a></li>
-                        @foreach($collections as $k => $v)
-                            <li data-group="collection" style="background-color: {{ $v['color'] }};" data-filter="{{ $k }}"><a>{{ $v['title'] }}</a></li>
-                        @endforeach
-                    </ul>
+                    <div class="filteritem uk-visible-large">
+                        <h5 class="uk-text-center">Kyn</h5>
+                        <ul class="grid-filter">
+                            <li data-group="kyn" data-filter=""><a class="default filter-active"><i class="uk-icon-genderless uk-margin-right"></i>Öll kyn</a></li>
+                            <li data-group="kyn" data-filter="karlar"><a><i class="uk-icon-male uk-margin-right"></i>Karlar</a></li>
+                            <li data-group="kyn" data-filter="konur"><a><i class="uk-icon-female uk-margin-right"></i>Konur</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filteritem uk-visible-large">
+                        <h5 class="uk-text-center">Lína</h5>
+                        <ul class="grid-filter">
+                            <li data-group="collection" style="" data-filter=""><a class="default filter-active">Allar línur</a></li>
+                            @foreach($collections as $k => $v)
+                                <li data-group="collection" style="background-color: {{ $v['color'] }};" data-filter="{{ $k }}"><a>{{ $v['title'] }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
 
                 <script>
@@ -51,12 +62,16 @@
                         filter = ctx.attr('data-filter')
 
                         if(groups[group] && groups[group].trim() === filter.trim()) {
-                            groups[group] = '';
-                            $anchor.removeClass('filter-active');
+                            //groups[group] = '';
+                            //$anchor.removeClass('filter-active');
                         } else {
                             groups[group] = filter.trim();
                             $('.grid-filter a').removeClass('filter-active');
                             $anchor.addClass('filter-active');
+                        }
+
+                        if( ! ($('.grid-filter a').hasClass('filter-active'))) {
+                            $('.grid-filter a.default').addClass('filter-active');
                         }
 
                         /*$('#texti').html('');
@@ -117,20 +132,18 @@
                                  data-filter-collection="{{ isset($item->collection) && $item->collection ? $item->collection : '' }}"
                                  data-filter-kyn="{{ $kyn }}">
                                 <div class="Product">
-                                    @if($item->konur > 0 || $item->karlar > 0)
-                                        <div class="Badge Badge--kyn">
-                                            @if((isset($item->konur) && $item->konur > 0) && (isset($item->karlar) && !$item->karlar))
-                                                <span data-uk-tooltip title="Konur"><i class="uk-icon-female"></i></span>
-                                            @endif
+                                    <div class="Badge Badge--kyn">
+                                        @if((isset($item->konur) && $item->konur > 0))
+                                            <span data-uk-tooltip title="Konur"><i class="uk-icon-female"></i></span>
+                                        @endif
+                                        @if((isset($item->karlar) && $item->karlar > 0))
+                                            <span data-uk-tooltip title="Karlar"><i class="uk-icon-male"></i></span>
+                                        @endif
 
-                                            @if((isset($item->karlar) && $item->karlar > 0) && (isset($item->konur) && !$item->konur))
-                                                <span data-uk-tooltip title="Karlar"><i class="uk-icon-male"></i></span>
-                                            @endif
-                                            {{--@else
-                                                <span data-uk-tooltip title="Bæði kyn"><i class="uk-icon-genderless"></i></span>
-                                            @endif--}}
-                                        </div>
-                                    @endif
+                                        @if(($item->modelName() !== 'Category') && !$item->konur && !$item->karlar)
+                                            <span data-uk-tooltip title="Öll kyn"><i class="uk-icon-genderless"></i></span>
+                                        @endif
+                                    </div>
 
                                     @if(isset($item->collection) && $item->collection)
                                         <div class="Badge Badge--collection"
