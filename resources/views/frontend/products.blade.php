@@ -28,15 +28,15 @@
                             <h5 class="uk-text-center">Kyn</h5>
                             <ul class="grid-filter">
                                 <li data-group="kyn" data-filter=""><a @click.prevent="addFilter" class="default filter-active"><i class="uk-icon-genderless uk-margin-right"></i>Öll kyn</a></li>
-                                <li data-group="kyn" data-filter="karlar"><a @click.prevent="addFilter"><i class="uk-icon-male uk-margin-right"></i>Karlar</a></li>
-                                <li data-group="kyn" data-filter="konur"><a @click.prevent="addFilter"><i class="uk-icon-female uk-margin-right"></i>Konur</a></li>
+                                <li data-group="kyn" data-filter="karlar"><a @click.prevent="addFilter"><i class="uk-icon-male uk-margin-right"></i>Herrar</a></li>
+                                <li data-group="kyn" data-filter="konur"><a @click.prevent="addFilter"><i class="uk-icon-female uk-margin-right"></i>Dömur</a></li>
                             </ul>
                         </div>
 
                         <div class="filteritem uk-visible-large">
-                            <h5 class="uk-text-center">Lína</h5>
+                            <h5 class="uk-text-center">Vörulína</h5>
                             <ul class="grid-filter">
-                                <li data-group="collection" style="" data-filter=""><a @click.prevent="addFilter" class="default filter-active">Allar línur</a></li>
+                                <li data-group="collection" style="" data-filter=""><a @click.prevent="addFilter" class="default filter-active">Allar vörulínur</a></li>
                                 @foreach($collections as $k => $v)
                                     <li data-group="collection" style="background-color: {{ $v['color'] }};" data-filter="{{ $k }}"><a @click.prevent="addFilter">{{ $v['title'] }}</a></li>
                                 @endforeach
@@ -44,15 +44,15 @@
                         </div>
 
                         
-                        {{--
-                        <pre>
+                        
+                        {{--<pre>
 
                         @{{ filterCount | json 4 }}
 
                         @{{ filters | json 4 }}
 
-                        </pre>
-                        --}}
+                        </pre>--}}
+                        
 
                         
                     </div>
@@ -61,12 +61,29 @@
 
             <div class="uk-width-large-4-5">
                 <div class="Boxes" style="padding: 10px;">
-                    <div v-if="matchedFilters < 1" class="uk-text-large uk-text-bold uk-margin-bottom">
-                        <div><i class="uk-icon-question-circle uk-margin-right"></i>Ekkert fannst með þessum síum! <a @click="clearFilters">Smelltu hér</a> til að taka burt síur.</div>
-                    </div>
+                    @if( ! $items->isEmpty() )
+                        <?php
 
-                    <div class="uk-grid uk-grid-small uk-grid-match filtered-products" data-uk-grid-match="{target:'.Product'}">                    
-                        @foreach($items as $item)   
+                        $productFound = false;
+
+                        ?>
+                        @foreach($items as $item)
+                            <?php
+
+                            $productFound = ($item->modelName() == 'Product');
+
+                            ?>
+                        @endforeach
+
+                        @if($productFound)
+                            <div v-cloak v-if="matchedFilters < 1" class="uk-text-large uk-text-bold uk-margin-bottom">
+                                <div><i class="uk-icon-question-circle uk-margin-right"></i>Ekkert fannst með þessum síum! <a @click="clearFilters">Smelltu hér</a> til að taka burt síur.</div>
+                            </div>
+                        @endif
+                    @endif
+
+                    <div class="uk-grid uk-grid-small uk-grid-match filtered-products" data-uk-grid-match="{target:'.Product'}">
+                        @forelse($items as $item)   
                             <?php
 
                             $isCategory = ($item->modelName() == 'Category');
@@ -82,10 +99,10 @@
                                 <div class="Product">
                                     <div class="Badge Badge--kyn">
                                         @if((isset($item->konur) && $item->konur > 0))
-                                            <span data-uk-tooltip title="Konur"><i class="uk-icon-female"></i></span>
+                                            <span data-uk-tooltip title="Dömur"><i class="uk-icon-female"></i></span>
                                         @endif
                                         @if((isset($item->karlar) && $item->karlar > 0))
-                                            <span data-uk-tooltip title="Karlar"><i class="uk-icon-male"></i></span>
+                                            <span data-uk-tooltip title="Herrar"><i class="uk-icon-male"></i></span>
                                         @endif
 
                                         @if(!$isCategory && !$item->konur && !$item->karlar)
@@ -116,7 +133,9 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        @empty
+                            <h3>Engar vörur að finna hér!</h3>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -145,6 +164,8 @@
         },
 
         ready: function() { 
+            this.readCookies();
+            this.setClasses();
         },
 
         computed: {
@@ -173,6 +194,30 @@
                 this.reFilter();
             },
 
+            readCookies: function() {
+                function getCookie(name) {
+                    var value = "; " + document.cookie;
+                    var parts = value.split("; " + name + "=");
+                    if (parts.length == 2) return parts.pop().split(";").shift();
+                }
+
+                for(v in this.filters) {
+                    var c = getCookie(v);
+
+                    if(c) {
+                        this.filters[v] = c;
+                    }
+                }
+
+                this.reFilter();
+            },
+
+            setCookies: function() {
+                for(v in this.filters) {
+                    document.cookie = v + '=' + this.filters[v] + ';path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;';
+                }
+            },
+
             addFilter: function(event) {
                 $el = $(event.target)
 
@@ -182,12 +227,23 @@
                 var filter = ctx.attr('data-filter')
 
                 ctx.siblings().find('a').removeClass('filter-active');
-
                 ctx.find('a').addClass('filter-active');
 
                 this.filters[group] = filter;
 
                 this.reFilter();
+            },
+
+            setClasses: function() {
+                $('.grid-filter').find('li > a').removeClass('filter-active');
+
+                for(v in this.filters) {
+                    if(this.filters[v] == '') {
+                        $('.grid-filter').find('li[data-group=' + v + ']').find('a.default').addClass('filter-active');
+                    } else {
+                        $('.grid-filter').find('li[data-group=' + v + '][data-filter=' + this.filters[v] + ']').find('a').addClass('filter-active');
+                    }
+                }
             },
 
             matchFilter: function($elem) {
@@ -226,7 +282,7 @@
                     }
                 }.bind(this))
 
-                console.log(this.matchedFilters);
+                this.setCookies();
             },
 
             incrQty: function(event) {

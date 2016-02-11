@@ -39,7 +39,20 @@ html {
     html {
       font-size: 14px; } }
 
-.Takki {
+input, textarea, select {
+  box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
+  border-radius: 4px;
+  font-family: 'Abel', sans-serif !important;
+  background: #221f1f;
+  color: #FFF;
+  font-size: 1rem;
+  padding: 0.5em;
+  border: 0px solid #FFF !important; }
+
+.takki,
+a.takki,
+button.takki,
+.fancy-takki {
   position: relative;
   display: inline-block;
   border: 2px solid rgba(34, 31, 31, 0.9);
@@ -47,16 +60,32 @@ html {
   padding: 0.5rem 1rem;
   z-index: 2;
   color: #FFF;
+  cursor: pointer !important;
   background: rgba(255, 255, 255, 0.1);
   transition: color 0.2s, border 0.2s, background 0.2s; }
-  .Takki:hover {
+  .takki--contrast,
+  a.takki--contrast,
+  button.takki--contrast,
+  .fancy-takki--contrast {
+    color: #221f1f;
+    background: rgba(34, 31, 31, 0.1); }
+  .takki:hover,
+  a.takki:hover,
+  button.takki:hover,
+  .fancy-takki:hover {
     color: #FFF;
     border: 2px solid rgba(34, 31, 31, 0.9);
     background: rgba(34, 31, 31, 0.9);
     text-decoration: none; }
-    .Takki:hover:before {
+    .takki:hover:before,
+    a.takki:hover:before,
+    button.takki:hover:before,
+    .fancy-takki:hover:before {
       border: 1px solid rgba(255, 255, 255, 0.9); }
-  .Takki:before {
+  .takki:before,
+  a.takki:before,
+  button.takki:before,
+  .fancy-takki:before {
     content: "";
     display: block;
     position: absolute;
@@ -78,6 +107,9 @@ html {
   .Haus--subpage {
     background: #221f1f;
     position: relative; }
+
+[v-cloak] {
+  display: none; }
 
 .filteritem {
   border-right: 1px solid rgba(34, 31, 31, 0.1);
@@ -129,6 +161,31 @@ html {
     text-align: center;
     top: 1em;
     left: 1em; }
+
+#product-view .product__option {
+  margin-bottom: 1em; }
+
+#product-view .product__options label {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  display: block;
+  clear: both; }
+
+#product-view .product__price {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1.5rem; }
+
+#product-view .product__mynd {
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
+  background: #FFF;
+  text-align: center; }
+  #product-view .product__mynd img {
+    max-height: 500px;
+    width: auto !important;
+    margin: 0 auto; }
 
 .Boxes--products {
   padding: 1em; }

@@ -23,6 +23,7 @@ $dark-lighter: #635A5A;
 $dark-lighter2: lighten(#635A5A, 60%);
 $max-width: 1600px;
 $base: 18px;
+$radius: 4px;
 
 html, body {
 	height: 100%;
@@ -84,7 +85,26 @@ html {
 	}
 }
 
-.Takki {
+
+
+
+
+input, textarea, select {
+	box-shadow: 0px 0px 8px rgba($dark, 0.2);
+	border-radius: $radius;
+	font-family: 'Abel', sans-serif !important;
+	background: $dark;
+	color: #FFF;
+	font-size: 1rem;
+	padding: 0.5em;
+	border: 0px solid #FFF !important;
+}
+
+
+.takki,
+a.takki,
+button.takki,
+.fancy-takki {
 	position: relative;
 	display: inline-block;
 	border: 2px solid rgba($dark, 0.9);
@@ -92,8 +112,14 @@ html {
 	padding: 0.5rem 1rem;
 	z-index: 2;
 	color: #FFF;
+	cursor: pointer !important;
 	background: rgba(#FFF, 0.1);
 	transition: color 0.2s, border 0.2s, background 0.2s;
+
+	&--contrast {
+		color: $dark;
+		background: rgba($dark, 0.1);
+	}
 
 	&:hover {
 		color: #FFF;
@@ -134,6 +160,10 @@ html {
 		background: rgba($dark, 1);
 		position: relative;
 	}
+}
+
+[v-cloak] {
+	display: none;
 }
 
 .filteritem {
@@ -201,6 +231,47 @@ html {
 	}
 }
 
+
+
+
+
+#product-view {
+	.product__option {
+		margin-bottom: 1em;
+	}
+	.product__options {
+		label {
+			font-weight: bold;
+			padding-bottom: 0.5em;
+			display: block;
+			clear: both;
+		}
+	}
+	.product__price {
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		font-size: 1.5rem;
+	}
+	.product__mynd {
+		overflow: hidden;
+		border-radius: $radius;
+		box-shadow: 0px 0px 8px rgba($dark, 0.2);
+		background: #FFF;
+
+		text-align: center;
+
+		img {
+			max-height: 500px;
+			width: auto !important;
+			margin: 0 auto;
+		}
+	}
+}
+
+
+
+
+
 .Boxes {
 	&--products {
 		padding: 1em;
@@ -220,7 +291,7 @@ html {
 
 		&--image {
 			@include aspect-ratio(5,6);
-			border-radius: 4px;
+			border-radius: $radius;
 			box-shadow: 0px 0px 8px rgba($dark, 0.2);
 			/*border: 1px solid #EEE;*/
 			display: block;

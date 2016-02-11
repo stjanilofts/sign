@@ -13,7 +13,7 @@ class VorukerfiController extends Controller
     public function index()
     {
         $cats   = \App\Category::where('status', 1)->where('parent_id', 0)->orderBy('order')->get();
-        $prods  = \App\Product::where('status', 1)->orderBy('order')->get();
+        $prods  = \App\Product::where('status', 1)->orderBy('category_id')->orderBy('order')->get();
 
         if($cats) {
             $data['items'] = $cats->merge($prods);

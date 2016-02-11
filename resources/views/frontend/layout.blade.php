@@ -66,7 +66,7 @@
                     @endforeach
 
                     <div class="hidden-small">
-                        <a href="#"><i class="uk-icon-shopping-cart uk-margin-right"></i>Karfa</a>
+                        <a href="/karfa/"><i class="uk-icon-shopping-cart uk-margin-right"></i>Karfa</a>
                     </div>
                 </nav>
             </div>
@@ -98,7 +98,7 @@
                                     <div class="Box--content">
                                         <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-flex-column">
                                             <h2>{{ $name }}</h2>
-                                            <a href="#" class="Takki">Skoða</a>
+                                            <a href="#" class="fancy-takki">Skoða</a>
                                         </div>
                                     </div>
                                 </div>

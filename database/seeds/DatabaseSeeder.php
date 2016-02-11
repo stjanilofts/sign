@@ -169,12 +169,12 @@ class DatabaseSeeder extends Seeder
         $flokkur5 = makeCategory(['title' => 'Skraut', 'images' => getImages(3)]);
 
         foreach(getImages() as $image) {
+            $imgs = array_merge(['images' => [$image]], getImages());
+            dd($imgs);
             makeProduct([
                 'title' => $faker->name,
                 'category_id' => (mt_rand(0,1) == 1 ? $flokkur1->id : $flokkur2->id),
-                'images' => [
-                    $image
-                ],
+                $imgs,
             ]);
         }
 
