@@ -111,12 +111,7 @@ class DatabaseSeeder extends Seeder
             $page['collection'] = $collection;
             $page['karlar'] = (mt_rand(0,1));
             $page['konur'] = (mt_rand(0,1));
-            $product_types = [
-                '',
-                'hringur',
-                'halsmen',
-            ];
-            $page['product_type'] = $product_types[(mt_rand(0, count($product_types) - 1))];
+            $page['product_type'] = \App\Product::product_types()[(mt_rand(0, count(\App\Product::product_types()) - 1))];
 
             return factory(\App\Product::class)->create($page);
         }

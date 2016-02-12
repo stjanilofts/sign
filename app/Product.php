@@ -79,6 +79,15 @@ class Product extends Formable
         return $ret;
     }
 
+    public static function product_types()
+    {
+        return [
+            '',
+            'hringur',
+            'halsmen',
+        ];
+    }
+
     public static function collections()
     {
         return [
