@@ -12,6 +12,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('slug');
+            $table->string('product_type')->default('');
             $table->string('hlutur')->default('product');
             $table->integer('order')->default(0)->unsigned();
             $table->integer('category_id')->default(0)->unsigned();

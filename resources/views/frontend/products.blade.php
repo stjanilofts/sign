@@ -97,6 +97,7 @@
                                  data-filter-collection="{{ isset($item->collection) && $item->collection ? $item->collection : '' }}"
                                  data-filter-kyn="{{ $kyn }}">
                                 <div class="Product">
+                                    {{ $item->product_type }}
                                     <div class="Badge Badge--kyn">
                                         @if((isset($item->konur) && $item->konur > 0))
                                             <span data-uk-tooltip title="Dömur"><i class="uk-icon-female"></i></span>
@@ -118,14 +119,14 @@
                                     @endif
 
                                     <a class="Product--image"
-                                       href="{{ $path }}"
+                                       href="/vefverslun/{{ $path }}"
                                        style="background: #FFF url('/imagecache/product/{{ isset($image) ? $image : $item->img()->first() }}') center center no-repeat;
                                             background-size: {{ isset($fillimage) && $fillimage ? 'cover' : 'contain' }};">
                                     </a>
 
                                     <div class="Product--content uk-margin-top uk-margin-large-bottom">
                                         <div class="title uk-margin-small-bottom">
-                                            <h5><a href="{{ $path }}">{{ $item->title }}</a></h5>
+                                            <h5><a href="/vefverslun/{{ $path }}">{{ $item->title }}</a></h5>
                                         </div>
                                         <div class="price">
                                             {{ $item->priceFormatted }}

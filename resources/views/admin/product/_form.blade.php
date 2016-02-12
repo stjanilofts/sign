@@ -7,7 +7,11 @@
 
 <?php
 $collections = \App\Product::collections();
-$cols = array_merge($collections, ['' => ' - Veldu línu (ef á við) - ']);
+$cols = ['' => ' - Veldu línu (ef á við) - '];
+foreach($collections as $key => $collection) {
+	$cols[$key] = $collection['title'];
+}
+
 ?>
 <div class="uk-form-row">
 	<label class="uk-form-label" for="collection">Collection (Lína)</label>

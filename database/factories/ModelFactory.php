@@ -75,22 +75,6 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
                 ]
             ]
         ],
-        [
-            "text" => "Stærð",
-            "type" => "select",
-            "values" => [
-                [
-                    "text" => "Lítill",
-                    "value" => "",
-                    "modifier" => "-300"
-                ],
-                [
-                    "text" => "Stór",
-                    "value" => "",
-                    "modifier" => "0"
-                ]
-            ]
-        ]
     ];
 
     $options = mt_rand(0, 1) == 1 ? $options : [];

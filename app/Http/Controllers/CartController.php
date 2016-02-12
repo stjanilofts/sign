@@ -80,12 +80,16 @@ class CartController extends Controller
         $options = [];
         $modifiers = [];
 
+        $_options = $product->options()->all();
+
+        //dd($_options);
+
         if($selected) {
             foreach($selected as $sel) {
                 $option_id      = $sel['option_id'];
                 $value_id       = $sel['value_id'];
             
-                foreach($product->options as $k => $opt) {
+                foreach($_options as $k => $opt) {
                     if($k == $option_id) {
                         foreach($opt['values'] as $l => $val) {
                             if($l == $value_id) {

@@ -111,6 +111,12 @@ class DatabaseSeeder extends Seeder
             $page['collection'] = $collection;
             $page['karlar'] = (mt_rand(0,1));
             $page['konur'] = (mt_rand(0,1));
+            $product_types = [
+                '',
+                'hringur',
+                'halsmen',
+            ];
+            $page['product_type'] = $product_types[(mt_rand(0, count($product_types) - 1))];
 
             return factory(\App\Product::class)->create($page);
         }
@@ -129,7 +135,7 @@ class DatabaseSeeder extends Seeder
 
         makePage([
             'title' => 'Bæklingur',
-            'topmenu' => 1,
+            'topmenu' => 0,
         ]);
 
         makePage([
@@ -292,7 +298,7 @@ class DatabaseSeeder extends Seeder
 
         makePage([
             'title' => 'Vertu í bandi',
-            'topmenu' => 1,
+            'topmenu' => 0,
         ]);
 
         $pics = ['slide1.jpg', 'slide2.jpg', 'slide3.jpg'];

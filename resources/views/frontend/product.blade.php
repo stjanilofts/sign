@@ -8,7 +8,8 @@
 
         <div class="uk-grid uk-grid-collapse">
             <div class="uk-width-large-1-5">
-	            <div data-uk-sticky="{top: 120, boundary: true}">
+	            <!--<div data-uk-sticky="{top: 120, boundary: true}">-->
+	            <div>
 					<div class="filteritem">
 	                    <nav class="leftmenu">
 	                        <h5 class="uk-text-center">Flokkar</h5>
@@ -155,7 +156,7 @@
 		data: {
 			base_price: {{ $item->price }},
 			product_id: {{ $item->id }},
-			options: {!! json_encode($item->options, true) !!},
+			options: {!! json_encode($item->options()->all(), true) !!},
 			selected: [],
 			quantity: 1,
 
