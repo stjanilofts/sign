@@ -17,12 +17,14 @@
 	}
 }
 
+$green: #0D130D;
 $dark: #221f1f;
 $dark-darker: #181010;
 $dark-lighter: #635A5A;
 $dark-lighter2: lighten(#635A5A, 60%);
 $max-width: 1600px;
 $base: 18px;
+$line-height: 32px;
 $radius: 4px;
 
 html, body {
@@ -50,6 +52,7 @@ html {
 	}
 
 	font-size: $base;
+	line-height: $line-height;
 
 	h1 {
 		font-size: 3rem;
@@ -101,30 +104,54 @@ input, textarea, select {
 }
 
 
+.takki +,
+a.takki +,
+button.takki +,
+.fancy-takki + {
+	outline: 1px solid red;
+}
+
 .takki,
 a.takki,
 button.takki,
 .fancy-takki {
-	position: relative;
-	display: inline-block;
-	border: 2px solid rgba($dark, 0.9);
-	text-transform: uppercase;
-	padding: 0.5rem 1rem;
-	z-index: 2;
-	color: #FFF;
+	font-family: 'Abel', sans-serif !important;
+	position: relative !important;
+	vertical-align: top !important;
+    display: inline-block !important;
+	border: 2px solid rgba($dark, 0.9) !important;
+	text-transform: uppercase !important;
+	padding: 0.75rem 1.25rem !important;
+	line-height: 1rem !important;
+	z-index: 2 !important;
+	box-sizing: border-box !important;
+	margin-top: 0;
+	margin-left: 0;
+	text-align: center !important;
+	margin-bottom: 0.5em !important; 
+	margin-right: 0.5em !important;
+	font-size: 1.1rem !important;
 	cursor: pointer !important;
-	background: rgba(#FFF, 0.1);
-	transition: color 0.2s, border 0.2s, background 0.2s;
+	transition: color 0.2s, border 0.2s, background 0.2s !important;
+
+	color: $dark !important;
+	background: rgba($dark, 0.1) !important;
 
 	&--contrast {
-		color: $dark;
-		background: rgba($dark, 0.1);
+		color: #FFF !important;
+		background: rgba(#FFF, 0.1);
+	}
+
+	@media (max-width: 520px) {
+		display: block !important;
+		clear: both;
+		width: 100% !important;
 	}
 
 	&:hover {
-		color: #FFF;
+		color: #FFF !important;
 		border: 2px solid rgba($dark, 0.9);
-		background: rgba($dark, 0.9);
+		background: rgba($dark, 0.9) !important;
 		text-decoration: none;
 
 		&:before {
@@ -150,7 +177,7 @@ button.takki,
 		/*outline: 1px solid lime;*/
 	}
 
-	z-index: 100;
+	z-index: 10000;
 	position: absolute;
 	background: rgba($dark, 0);
 	top: 0;
@@ -245,6 +272,18 @@ button.takki,
 			padding-bottom: 0.5em;
 			display: block;
 			clear: both;
+		}
+	}
+	.product__aukamynd {
+		border-radius: $radius;
+		box-shadow: 0px 0px 8px rgba($dark, 0.2);
+		display: inline-block;
+		a {
+			border-radius: $radius;
+			box-shadow: 0px 0px 8px rgba($dark, 0.2);
+			background: #FFF;
+			overflow: hidden;
+			display: inline-block;
 		}
 	}
 	.product__price {
@@ -354,9 +393,28 @@ button.takki,
 	}
 }
 
+.uk-notify-message {
+	background: rgba($dark-lighter, 0.9);
+	font-size: 1.2rem;
+	text-align: center;
+	a.uk-close {
+		display: none !important;
+	}
+}
+
 .Footer {
 	background: $dark;
-	height: 500px;
+	padding: 1em;
+	color: #FFF;
+	h1, h2, h3, h4, h5, h6 {
+		color: #FFF;
+	}
+	line-height: 1.5rem;
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .Content {
@@ -383,6 +441,19 @@ header {
 	}
 }
 
+.Lengja {
+	padding: 3rem;
+	text-align: center;
+	font-weight: normal !important;
+	background: $green;
+	h1, h2, h3, h4, h5, h6 {
+		color: #FFF;
+		padding: 0;
+		margin: 0;
+	}
+	color: #FFF;
+}
+
 .Front {
 	position: relative;
 
@@ -398,6 +469,7 @@ header {
 	}
 
 	display: block;
+
 	min-height: 400px;
 
 	.uk-slideshow {
@@ -559,4 +631,70 @@ nav {
 	padding: 2em;
 	max-width: 1000px;
 	margin: 0 auto;
+}
+
+
+/*.uk-text-center-small {
+	@media (max-width: 768px) {
+		text-align: center !important;
+	}
+}*/
+
+
+
+
+
+
+
+
+
+
+
+figure {
+	display: inline-block;
+	width: 100%;
+	img {
+		width: 100%;
+		vertical-align: top;
+	}
+	&.lefter, &.righter {
+		max-width: 350px;
+	}
+	&.lefter {
+		margin-right: 2rem;
+		float: left;
+	}
+	&.righter {
+		margin-left: 2rem;
+		float: right;
+	}
+	
+	@media (max-width: 1400px) {
+		&.lefter, &.righter {
+			max-width: 300px;
+		}
+	}
+
+	@media (max-width: 1100px) {
+		&.lefter, &.righter {
+			max-width: 250px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		&.lefter, &.righter {
+			max-width: 200px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		&.lefter, &.righter {
+			max-width: none !important;
+		}
+		display: block !important;
+		width: 100%;
+		img {
+			width: 100%;
+		}
+	}
 }

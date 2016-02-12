@@ -134,12 +134,160 @@ class DatabaseSeeder extends Seeder
 
         makePage([
             'title' => 'Saga Sign',
+            'content' => '
+{image|align:right|size:m}
+<p>Ingi Bjarnason er yngstur í stórum systkynahópi hönnuða og listamanna.  Rekinn áfram af ríkri sköpunarþörf með sitt frjóa og listræna ímyndarafl fann Ingi að gullsmíðin væri hans rétta hlutskipti í lífinu. Kornungur gerðist hann lærlingur hjá færum gullsmiði. Ingi náði snemma á ferlinum góðum tökum á smíði og hönnun skartgripa og stofnaði eigið gullsmíðafyrirtæki árið 2001. Í fallegu umhverfi smábátahafnarinnar í Hafnarfirði rekur Ingi nú fyrirtæki sitt SIGN sem er eitt af helstu kennileitunum í íslenskri hönnun og smíði skartgripa.</p>
+
+
+<p>Á vinnustofu SIGN er mikill erill því auk Inga starfar þar hópur hæfileikaríkra gullsmiða við smíði skartgripa. Ekki veitir af því hönnun Inga hefur skilað sjö vinsælustu skartgripalínunum sem seldar eru hérlendis í dag. Í hönnuninni birtist gjarnan dulúð íslenskrar náttúru og frumkraftar hennar eldurinn og ísinn. Skartgripirnir frá SIGN eru seldir í sérverslunum víða um land og auk þess um borð í flugvélum Icelandair. Auk þess sinnir SIGN smíði á sérpöntunum meðal annars á stærri gripum fyrir einstaklinga, félög og fyrirtæki. Verkin frá SIGN hafa sannarlega unnið hug Íslendinga og sama má segja um erlenda gesti okkar. Framsækni í hönnun og fegurð gripanna eru lykilorðin í velgengni SIGN en það orðspor ætla Ingi og samstarfsmenn hans að varðveita með áframhaldandi nýsköpun.</p>
+            ',
+            'images' => [
+                [
+                    'name' => 'ingi_stor.jpg',
+                    'title' => 'Ingi',
+                ]
+            ],
             'topmenu' => 1,
         ]);
 
         makePage([
             'title' => 'Sölustaðir',
             'topmenu' => 1,
+            'content' => '
+<div class="uk-grid">
+    <div class="uk-width-medium-1-2 uk-text-center">
+        <p><strong>Sign Gallery</strong><br>
+        Fornubúðum 12, Hafnarfjörður<br>
+        Tel: +354 555 0800</p>
+
+        <p><strong>Úr og Gull</strong><br>
+        Fjarðargötu 13-15, 220 Hafnarfjörður<br>
+        Tel: +354 565 4666</p>
+
+        <p><strong>Gallery Hilton</strong><br>
+        Suðurlandbraut 2, Reykjavík<br>
+        Tel: +354 869 1218</p>
+
+        <p><strong>Hótel Natura</strong><br>
+        Hlíðarfæti, Reykjavík<br>
+        Tel: +354 444 4500</p>
+
+        <p><strong>Saga Boutique / Icelandair</strong><br>
+        Keflavíkurflugvelli, Reykjanesbær<br>
+        Tel: +354 425 0345</p>
+
+        <p><strong>Karl R. Guðmundsson</strong><br>
+        Austurvegi 11, Selfoss<br>
+        Tel: +354 482 1433</p>
+
+        <p><strong>Model</strong><br>
+        Þjóðbraut 1, Akranes<br>
+        Tel: +354 431 3333</p>
+
+        <p><strong>Húsgagnaval</strong><br>
+        Hrísbraut 2, Höfn í Hornarfirði<br>
+        Tel: +354 478 2535</p>
+
+        <p><strong>Bláa Lónið</strong><br>
+        Svartsengi, 240 Grindavík<br>
+        Tel: +354 420 8800</p>
+
+        <p><strong>Blómstuvellir</strong><br>
+        Munaðarhóli 25-27, 360 Hellissandi<br>
+        Tel: +354 436 6655</p>
+
+        <p><strong>Carat</strong><br>
+        Smáralind - 201 Kópavogi<br>
+        Tel: +354 557 7740</p>
+
+        <p><strong>Hótel Cabin</strong><br>
+        Borgartúni 32, 105 Reykjavík<br>
+        Tel: +354 511 6030</p>
+         
+        <p><strong>Hársnyrtistofan Capello</strong><br>
+        Aðalgötu 20b, 550 Sauðárkróki<br>
+        Tel: +354 453 6800</p>
+         
+        <p><strong>Snorrastofa</strong><br>
+        í Reykholti<br>
+        Tel: +354 433 8000</p>
+
+        <p><strong>Epal</strong><br>
+        Fríhöfninni, Flugstöð Leifs Eiríkssonar<br>
+        235 Reykjanesbæ<br>
+        Tel: +354 568 7733</p>
+         
+        <p><strong>Fjörukráin</strong><br>
+        Strandgötu 55, 220 Hafnarfirði<br>
+        Tel: +354 565 1213</p>
+         
+        <p><strong>Sædís</strong><br>
+        Geirsgata 5b, 101 Reykjavík</p>
+    </div>
+    <div class="uk-width-medium-1-2 uk-text-center">
+        <p><strong>Grand Hótel</strong><br>
+        Sigtúni 38, 105 Reykjavík<br>
+        Tel: +354 514 8000</p>
+         
+        <p><strong>Leonard</strong><br>
+        Kringlunni, Reykjavík<br>
+        Tel: +354 510 4000</p>
+
+        <p><strong>GÞ Skartgripir og úr</strong><br>
+        Bankastræti 12, Reykjavík<br>
+        Tel: +354 551 4007</p>
+
+        <p><strong>Halldór Ólafsson úrsmiður</strong><br>
+        Glerártorg, Akureyri<br>
+        Tel: +354 462 2509</p>
+
+        <p><strong>Palóma föt og skart</strong><br>
+        Víkurbraut 62, Grindavík<br>
+        Tel: +354 426 8711</p>
+
+        <p><strong>Hótel Saga</strong><br>
+        Hagatorgi, 107 Raykjavík<br>
+        Tel: +354 570 7744</p>
+
+        <p><strong>Klassík</strong><br>
+        Selási 1, 700 Egilsstöðum<br>
+        Tel: +354 471 1886</p>
+
+        <p><strong>Póley</strong><br>
+        Heiðartúni 1, 900 Vestmanneyjar<br>
+        Tel: +354 481 1155</p>
+
+        <p><strong>Rammagerðin</strong><br>
+        Hafnarstræti 19, 101 Reykjavík<br>
+        Tel: +354 551 1122</p>
+
+        <p><strong>Siglósport</strong><br>
+        Aðalgötu 32, 580 Siglufirði<br>
+        Tel: +354 467 1866</p>
+
+        <p><strong>Töff Föt</strong><br>
+        Garðsbraut 62, 640 Húsavík<br>
+        Tel: +354 464 2727</p>
+         
+        <p><strong>Hárstofa Sigríðar</strong><br>
+        Austurvegi 20a, 730 Reyðarfirði<br>
+        Tel: 354 474 1417</p>
+         
+        <p><strong>Klukkan</strong><br>
+        Hamraborg 10, 200 Kópavogi<br>
+        Tel: +354 554 4320</p>
+         
+        <p><strong>Georg V. Hannah</strong><br>
+        Hafnargötu 49, 230 Reykjanesbæ<br>
+        Tel: +354 421 5757</p>
+         
+        <p><strong>Scandinavian House</strong><br>
+        58th Park Avenue,<br>
+        10016 New York, USA<br>
+        Tel: +1 212 686 2115</p>
+    </div>
+</div>
+            '
         ]);
 
         makePage([
@@ -169,12 +317,11 @@ class DatabaseSeeder extends Seeder
         $flokkur5 = makeCategory(['title' => 'Skraut', 'images' => getImages(3)]);
 
         foreach(getImages() as $image) {
-            $imgs = array_merge(['images' => [$image]], getImages());
-            dd($imgs);
+            $imgs = array_merge([0 => $image], getImages());
             makeProduct([
                 'title' => $faker->name,
                 'category_id' => (mt_rand(0,1) == 1 ? $flokkur1->id : $flokkur2->id),
-                $imgs,
+                'images' => $imgs,
             ]);
         }
 

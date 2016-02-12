@@ -85,26 +85,32 @@ class Product extends Formable
             'collection-eldur-og-is' => [
                 'title' => 'Eldur og ís',
                 'color' => '#dc1962',
+                'image' => 'eldur-og-is.jpg',
             ],
             'collection-mystic' => [
                 'title' => 'Dulúð',
                 'color' => '#87936f',
+                'image' => 'mystic.jpg',
             ],
             'collection-straumur' => [
                 'title' => 'Straumur',
                 'color' => '#e0e0e0',
+                'image' => 'straumur.jpg',
             ],
             'collection-piece-of-iceland' => [
                 'title' => 'Piece of Iceland',
                 'color' => '#f8e7cd',
+                'image' => 'piece-of-iceland.jpg',
             ],
             'collection-rock' => [
                 'title' => 'Rock',
                 'color' => '#7b675e',
+                'image' => 'rock.jpg',
             ],
             'collection-signs-by-sign' => [
                 'title' => 'Signs by sign',
                 'color' => '#a2b1b4',
+                'image' => 'signs-by-sign.jpg',
             ],
         ];
     }

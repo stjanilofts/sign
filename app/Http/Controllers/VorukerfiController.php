@@ -10,6 +10,17 @@ class VorukerfiController extends Controller
 {
     public $crumbs = [];
 
+    public function vorulina($vorulina)
+    {
+        $collections = \App\Product::collections();
+        if(array_key_exists($vorulina, $collections)) {
+            $data['items'] = \App\Product::where('collection', $vorulina)->orderBy('category_id')->orderBy('order')->get();
+            $data['pagetitle'] = $collections[$vorulina]['title'];
+            return view('frontend.products')->with($data);
+        }
+        return redirect()->to('/vefverslun/');
+    }
+
     public function index()
     {
         $cats   = \App\Category::where('status', 1)->where('parent_id', 0)->orderBy('order')->get();

@@ -8,12 +8,14 @@
 
         <div class="uk-grid uk-grid-collapse">
             <div class="uk-width-large-1-5">
-				<div class="filteritem">
-                    <nav class="leftmenu">
-                        <h5 class="uk-text-center">Flokkar</h5>
-                        {!! kalCategoryMenu() !!}
-                    </nav>
-                </div>
+	            <div data-uk-sticky="{top: 120, boundary: true}">
+					<div class="filteritem">
+	                    <nav class="leftmenu">
+	                        <h5 class="uk-text-center">Flokkar</h5>
+	                        {!! kalCategoryMenu() !!}
+	                    </nav>
+	                </div>
+	            </div>
             </div>
 
             <div class="uk-width-large-4-5">
@@ -93,14 +95,14 @@
 								</div>
 
 								<div class="uk-margin-top">
-									<button @click="addToCart" class="takki takki--contrast" :disabled="isProcessing">
+									<button @click="addToCart" class="takki" :disabled="isProcessing">
 										<span v-if=" ! isProcessing">
 										Setja í körfu<i class="uk-icon-shopping-cart uk-margin-left"></i>
 										</span>
 										<span v-if="isProcessing">
 										Augnablik... <i class="uk-icon-spin uk-icon-spinner uk-margin-left"></i>
 										</span>
-									</button><a v-if="added" href="/karfa/" class="takki takki--contrast" :disabled="isProcessing">
+									</button><a v-if="added" href="/karfa/" class="takki" :disabled="isProcessing">
 										Skoða körfu<i class="uk-icon-arrow-circle-o-right uk-margin-left"></i>
 									</a>
 								</div>
@@ -216,7 +218,6 @@
 					if(response.data.status == 'success') {
 						cart_widget.increment(this.quantity);
 						this.added = true;
-						alert('k')
 						UIkit.notify("<span class='uk-text-center'><i class='uk-icon-small uk-icon-check-circle uk-margin-right'></i>Vöru var bætt í <a href='/karfa/'>körfu</a>!</span>", { pos: 'bottom-center' })
 					}
 				}.bind(this));

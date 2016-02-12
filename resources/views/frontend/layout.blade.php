@@ -66,7 +66,8 @@
                     @endforeach
 
                     <div class="hidden-small">
-                        <a href="/karfa/"><i class="uk-icon-shopping-cart uk-margin-right"></i>Karfa</a>
+                        @include('frontend.cart.widget', ['elementId' => 'cart-widget'])
+                        <!--<a href="/karfa/"><i class="uk-icon-shopping-cart uk-margin-right"></i>Karfa</a>-->
                     </div>
                 </nav>
             </div>
@@ -78,27 +79,24 @@
                     </ul>
                 </div>
 
+                <div class="Lengja">
+                    <h3 data-uk-scrollspy="{cls:'uk-animation-fade', delay:900}">Hjá SIGN eru hannaðir og smíðaðir fallegir skartgripir sem gjarnan endurspegla það fallega og dulræna sem býr í íslenskri náttúru.</h3>
+                </div>
+
                 <?php
 
-                $myndir = [
-                    'Eldur og ís' => 'eldur-og-is.jpg',
-                    'Dulúð' => 'mystic.jpg',
-                    'Straumur' => 'straumur.jpg',
-                    'Piece of Iceland' => 'piece-of-iceland.jpg',
-                    'Rock' => 'rock.jpg',
-                    'Signs by sign' => 'signs-by-sign.jpg',
-                ];
+                $collections = \App\Product::collections();
 
                 ?>
                 <div class="Boxes">
                     <div class="uk-grid uk-grid-collapse uk-grid-match" data-uk-grid-match="{target:'.Box'}">
-                        @foreach($myndir as $name => $mynd)
+                        @foreach($collections as $key => $collection)
                             <div class="uk-width-large-1-3 uk-width-small-1-2">
-                                <div class="Box Box--shaded" style="background-image: url('/imagecache/large/{{ $mynd }}')">
+                                <div class="Box Box--shaded" style="background-image: url('/imagecache/large/{{ $collection['image'] }}')">
                                     <div class="Box--content">
                                         <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-flex-column">
-                                            <h2>{{ $name }}</h2>
-                                            <a href="#" class="fancy-takki">Skoða</a>
+                                            <h2>{{ $collection['title'] }}</h2>
+                                            <a href="/vefverslun/vorulina/{{ $key }}" class="fancy-takki takki--contrast">Skoða</a>
                                         </div>
                                     </div>
                                 </div>
@@ -121,6 +119,31 @@
             @endif
 
             <div class="Footer">
+                <div class="uk-grid" data-uk-grid-margin>   
+                    <div class="uk-width-medium-1-3 uk-text-center-small">
+                        <h3><i class="uk-icon-home uk-margin-right"></i>Sign ehf.</h3>
+                        <ul>
+                            <li>Fornubúðir 12</li>
+                            <li>220 Hafnarfjörður, Iceland</li>
+                            <li>+354 555 0800</li>
+                            <li><a href="mailto:sign@sign.is">sign@sign.is</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="uk-width-medium-1-3 uk-text-center-small">
+                        <h3><i class="uk-icon-clock-o uk-margin-right"></i>Opnunartímar:</h3>
+                        <ul>
+                            <li><strong>Virka daga</strong><br>10:00 - 18:00</li>
+                            <li><strong>Laugardaga</strong><br>11:00 - 15:00</li>
+                        </ul>
+                    </div>
+
+                    <div class="uk-width-medium-1-3 uk-text-right uk-text-center-small">
+                        <a href="https://www.facebook.com/SignSkart/" class="uk-margin-right"><i class="uk-icon-facebook-square uk-icon-large"></i></a>
+                        <a href="#" class="uk-margin-right"><i class="uk-icon-twitter-square uk-icon-large"></i></a>
+                        <a href="#"><i class="uk-icon-pinterest-square uk-icon-large"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
 
