@@ -12,11 +12,22 @@ foreach($collections as $key => $collection) {
 	$cols[$key] = $collection['title'];
 }
 
+$product_types = \App\Product::product_types();
+
+
 ?>
 <div class="uk-form-row">
-	<label class="uk-form-label" for="collection">Collection (Lína)</label>
+	<label class="uk-form-label" for="collection">Collection (Vörulína)</label>
 	<div class="uk-form-controls">
 		{!! Form::select('collection', $cols, (isset($item->collection) ? $item->collection : '')) !!}
+	</div>
+</div>
+
+<div class="uk-form-row">
+	<label class="uk-form-label" for="product_type">Tegund vöru</label>
+	<div class="uk-form-controls">
+		{!! Form::select('product_type', $product_types, (isset($item->product_type) ? $item->product_type : '')) !!}
+		<br><small>Þetta segir til um hvaða vöruvalmöguleikar eru fyrirfram ákveðnir.</small>
 	</div>
 </div>
 

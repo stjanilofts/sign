@@ -111,7 +111,15 @@ class DatabaseSeeder extends Seeder
             $page['collection'] = $collection;
             $page['karlar'] = (mt_rand(0,1));
             $page['konur'] = (mt_rand(0,1));
-            $page['product_type'] = \App\Product::product_types()[(mt_rand(0, count(\App\Product::product_types()) - 1))];
+
+            $array = \App\Product::product_types();
+            $key = array_rand($array);
+            $value = $array[$key];
+
+            //print_r($bla[(mt_rand(0, count(\App\Product::product_types()) - 1))]);
+            //$page['product_type'] = key(\App\Product::product_types()[(mt_rand(0, count(\App\Product::product_types()) - 1))]);
+            //echo $key;
+            $page['product_type'] = $key;
 
             return factory(\App\Product::class)->create($page);
         }
@@ -293,7 +301,7 @@ class DatabaseSeeder extends Seeder
 
         makePage([
             'title' => 'Vertu í bandi',
-            'topmenu' => 0,
+            'topmenu' => 1,
         ]);
 
         $pics = ['slide1.jpg', 'slide2.jpg', 'slide3.jpg'];

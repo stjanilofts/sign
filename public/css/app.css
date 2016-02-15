@@ -40,11 +40,15 @@ html {
     html {
       font-size: 14px; } }
 
+hr {
+  border: 0px solid #FFF;
+  border-bottom: 1px solid rgba(34, 31, 31, 0.1) !important; }
+
 input, textarea, select {
   box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
   border-radius: 4px;
   font-family: 'Abel', sans-serif !important;
-  background: #221f1f;
+  background: #635A5A;
   color: #FFF;
   font-size: 1rem;
   padding: 0.5em;
@@ -87,10 +91,10 @@ button.takki,
     color: #FFF !important;
     background: rgba(255, 255, 255, 0.1); }
   @media (max-width: 520px) {
-    .takki,
-    a.takki,
-    button.takki,
-    .fancy-takki {
+    .takki:not(.fancy-takki),
+    a.takki:not(.fancy-takki),
+    button.takki:not(.fancy-takki),
+    .fancy-takki:not(.fancy-takki) {
       display: block !important;
       clear: both;
       width: 100% !important; } }
@@ -192,7 +196,7 @@ button.takki,
 
 #product-view .product__options label {
   font-weight: bold;
-  padding-bottom: 0.5em;
+  padding-bottom: 0em;
   display: block;
   clear: both; }
 
@@ -309,7 +313,7 @@ button.takki,
     display: none !important; }
 
 .Footer {
-  background: #221f1f;
+  background: #0D130D;
   padding: 1em;
   color: #FFF;
   line-height: 1.5rem; }
@@ -331,7 +335,7 @@ button.takki,
 header {
   padding-top: 1em;
   padding-bottom: 1em;
-  background: #181010; }
+  background: #0D130D; }
   header h1 {
     padding: 0;
     margin: 0;
@@ -374,6 +378,24 @@ header {
   max-width: 1600px;
   position: relative;
   margin: 0 auto; }
+
+#mobile-nav .uk-offcanvas-bar {
+  box-shadow: 0px 0px 8px #221f1f;
+  background: #0D130D; }
+  #mobile-nav .uk-offcanvas-bar nav div {
+    display: block;
+    clear: both;
+    padding: 0;
+    margin: 0; }
+    #mobile-nav .uk-offcanvas-bar nav div a {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      line-height: 1.8rem;
+      border-bottom: 1px solid #221f1f;
+      padding: 10px;
+      display: block; }
+      #mobile-nav .uk-offcanvas-bar nav div a:hover {
+        text-decoration: none; }
 
 nav.leftmenu ul li a span {
   display: block; }
@@ -467,6 +489,12 @@ nav.top {
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between; } }
+    @media (min-width: 1101px) {
+      nav.top div.hidden-large {
+        display: none;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between; } }
   nav.top.sticky-active {
     height: 100px;
     background: rgba(34, 31, 31, 0.9); }
@@ -519,5 +547,60 @@ figure {
         max-width: none !important; }
       figure img {
         width: 100%; } }
+
+.cart2-container {
+  position: relative; }
+  .cart2-container .updating-cart {
+    display: block;
+    opacity: 0;
+    z-index: -1;
+    font-weight: bold;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 247, 247, 0.5);
+    transition: opacity 0.6s; }
+    .cart2-container .updating-cart.active {
+      transition: opacity 0.6s;
+      z-index: 1;
+      opacity: 1; }
+
+.cart2 {
+  /*padding-bottom: 2em;*/ }
+  .cart2 div.column {
+    /*outline: 1px solid red;*/
+    padding: 10px; }
+    @media (max-width: 767px) {
+      .cart2 div.column {
+        padding-top: 0px;
+        padding-bottom: 0px; } }
+    .cart2 div.column img {
+      width: 100%;
+      height: auto !important;
+      box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
+      border-radius: 4px; }
+    .cart2 div.column h5 {
+      padding: 0;
+      margin: 0; }
+  .cart2 .CartItem {
+    border: 1px solid rgba(34, 31, 31, 0.1); }
+    @media (max-width: 767px) {
+      .cart2 .CartItem {
+        padding-top: 10px;
+        padding-bottom: 10px; } }
+    .cart2 .CartItem ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      /*font-size: 0.85rem;
+			line-height: 1.25rem;*/ }
+      .cart2 .CartItem ul li {
+        padding: 0;
+        margin: 0; }
+    .cart2 .CartItem + .CartItem {
+      border-top: 0px solid rgba(34, 31, 31, 0.1); }
 
 /*# sourceMappingURL=app.css.map */

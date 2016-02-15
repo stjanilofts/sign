@@ -60,13 +60,17 @@
                             </div>
                         @endif
                         
-                        <div class="{{ $menuItem['hidden_small'] ? 'hidden-small' : '' }}">
-                            <a href="{{ $menuItem['path'] }}">{!! $menuItem['title'] !!}</a>
+                        <div class="{{ $menuItem['hidden_small'] ? 'hidden-small' : '' }} {{ $menuItem['hidden_large'] ? 'hidden-large' : '' }}">
+                            @if(array_key_exists('mobile', $menuItem))
+                                <a href="#mobile-nav" data-uk-offcanvas>{!! $menuItem['icon'] !!}{!! $menuItem['title'] !!}</a>
+                            @else
+                                <a href="{{ $menuItem['path'] }}">{!! $menuItem['icon'] !!}{!! $menuItem['title'] !!}</a>
+                            @endif
                         </div>
                     @endforeach
 
                     <div class="hidden-small">
-                        @include('frontend.cart.widget', ['elementId' => 'cart-widget'])
+                        @include('frontend.cart.widget', ['elementId' => 'cart_widget'])
                         <!--<a href="/karfa/"><i class="uk-icon-shopping-cart uk-margin-right"></i>Karfa</a>-->
                     </div>
                 </nav>
@@ -120,7 +124,7 @@
 
             <div class="Footer">
                 <div class="uk-grid" data-uk-grid-margin>   
-                    <div class="uk-width-medium-1-3 uk-text-center-small">
+                    <div class="uk-width-medium-1-4 uk-text-center-small">
                         <h3><i class="uk-icon-home uk-margin-right"></i>Sign ehf.</h3>
                         <ul>
                             <li>Fornubúðir 12</li>
@@ -130,7 +134,7 @@
                         </ul>
                     </div>
 
-                    <div class="uk-width-medium-1-3 uk-text-center-small">
+                    <div class="uk-width-medium-1-4 uk-text-center-small">
                         <h3><i class="uk-icon-clock-o uk-margin-right"></i>Opnunartímar:</h3>
                         <ul>
                             <li><strong>Virka daga</strong><br>10:00 - 18:00</li>
@@ -138,7 +142,15 @@
                         </ul>
                     </div>
 
-                    <div class="uk-width-medium-1-3 uk-text-right uk-text-center-small">
+                    <div class="uk-width-medium-1-4 uk-text-center-small">
+                        <h3><i class="uk-icon-money uk-margin-right"></i>Greiðsluleiðir</h3>
+                        <ul>
+                            <li><i class="uk-icon-cc-visa uk-icon-large"></i></li>
+                            <li><i class="uk-icon-cc-mastercard uk-icon-large"></i></li>
+                        </ul>
+                    </div>
+
+                    <div class="uk-width-medium-1-4 uk-text-right uk-text-center-small">
                         <a href="https://www.facebook.com/SignSkart/" class="uk-margin-right"><i class="uk-icon-facebook-square uk-icon-large"></i></a>
                         <a href="#" class="uk-margin-right"><i class="uk-icon-twitter-square uk-icon-large"></i></a>
                         <a href="#"><i class="uk-icon-pinterest-square uk-icon-large"></i></a>
@@ -148,5 +160,36 @@
         </div>
 
         <script src="/js/scripts.js?v=2"></script>
+
+        <div id="mobile-nav" class="uk-offcanvas">
+            <div class="uk-offcanvas-bar">
+                <nav>
+                    <?php
+
+                    $menu = kalTopMenu();
+                    $menuCount = count($menu);
+
+                    ?>
+                    @foreach(kalTopMenu() as $k => $menuItem)
+                        {{-- @if(ceil($menuCount / 2) == $k)
+                            <div>
+                                <a href="/" id="logo"><img src="/img/logo.png" /></a>
+                            </div>
+                        @endif --}}
+                        
+                        <div class="{{ $menuItem['hidden_small'] ? 'hidden-small' : '' }} {{ $menuItem['hidden_large'] ? 'hidden-large' : '' }}">
+                            @if(array_key_exists('mobile', $menuItem))
+                            @else
+                                <a href="{{ $menuItem['path'] }}">{!! $menuItem['icon'] !!}{!! $menuItem['title'] !!}</a>
+                            @endif
+                        </div>
+                    @endforeach
+
+                    <div class="hidden-small">
+                        <a href="/karfa/"><i class="uk-icon-shopping-cart uk-margin-right"></i>Karfa</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </body>
 </html>

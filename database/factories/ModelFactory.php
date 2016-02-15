@@ -53,10 +53,11 @@ $factory->define(App\News::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
 
-    $options = [
+    /*$options = [
         [
             "text" => "Litur",
             "type" => "select",
+            "readonly" => 0,
             "values" => [
                 [
                     "text" => "Blár",
@@ -77,7 +78,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         ],
     ];
 
-    $options = mt_rand(0, 1) == 1 ? $options : [];
+    $options = mt_rand(0, 1) == 1 ? $options : [];*/
 
     
 
@@ -114,7 +115,7 @@ abcd;1234
 fdefgh;56738
 efgh;5678",
         'images' => [],
-        'options' => $options,
+        'options' => isset($options) ? $options : [],
     ];
 });
 

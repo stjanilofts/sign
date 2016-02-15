@@ -4,6 +4,8 @@
 
 @section('content')
 
-	@include('frontend.cart._cart')
+	<div class="Page">
+		@include('frontend.cart._cart2')
+	</div>
 
 @stop

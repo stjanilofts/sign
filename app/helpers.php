@@ -246,21 +246,28 @@ function kalTopMenu($args = [])
 
     $menu[] = [
         'hidden_small' => false,
-        'title' => '<i class="uk-icon-home uk-margin-right"></i>Heim',
+        'hidden_large' => false,
+        'icon' => '<i class="uk-icon-home uk-margin-right"></i>',
+        'title' => 'Heim',
         'path' => '/',
     ];
 
     foreach($items as $item) {
         $menu[] = [
             'hidden_small' => true,
+            'hidden_large' => false,
             'title' => $item->title,
+            'icon' => '',
             'path' => $item->path,
         ];
     }
 
     $menu[] = [
+        'hidden_large' => true,
         'hidden_small' => false,
-        'title' => '<i class="uk-icon-bars uk-margin-right"></i>Meira',
+        'mobile' => true,
+        'icon' => '<i class="uk-icon-bars uk-margin-right"></i>',
+        'title' => 'Meira',
         'path' => '/',
     ];
 

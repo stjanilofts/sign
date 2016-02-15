@@ -116,7 +116,7 @@ Route::group(['middleware'=>'auth', 'prefix' => '_product'], function () {
 
     Route::get('{id}', function($id) {
         $product = \App\Product::find($id);
-        return $product->options;
+        return $product->options()->all();
     });
 });
 

@@ -97,7 +97,6 @@
                                  data-filter-collection="{{ isset($item->collection) && $item->collection ? $item->collection : '' }}"
                                  data-filter-kyn="{{ $kyn }}">
                                 <div class="Product">
-                                    {{ $item->product_type }}
                                     <div class="Badge Badge--kyn">
                                         @if((isset($item->konur) && $item->konur > 0))
                                             <span data-uk-tooltip title="Dömur"><i class="uk-icon-female"></i></span>

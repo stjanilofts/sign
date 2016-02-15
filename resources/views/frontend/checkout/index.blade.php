@@ -4,6 +4,8 @@
 
 @section('content')
 
-	@include('frontend.checkout._checkout')
+	<div class="Page">
+		@include('frontend.checkout._checkout')
+	</div>
 
 @stop

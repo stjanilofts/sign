@@ -51,10 +51,12 @@ class ProductController extends ItemableController
 
         $options = $request->get('options');
 
-        $product->update([
-            'options' => $options
-        ]);
+        $product->options()->update($options);
 
-        return $product->options;
+        /*$product->update([
+            'options' => $options
+        ]);*/
+
+        return $product->options()->all();
     }
 }

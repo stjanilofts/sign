@@ -89,6 +89,11 @@ html {
 }
 
 
+hr {
+	border: 0px solid #FFF;
+	border-bottom: 1px solid rgba($dark, 0.1) !important;
+}
+
 
 
 
@@ -96,7 +101,7 @@ input, textarea, select {
 	box-shadow: 0px 0px 8px rgba($dark, 0.2);
 	border-radius: $radius;
 	font-family: 'Abel', sans-serif !important;
-	background: $dark;
+	background: $dark-lighter;
 	color: #FFF;
 	font-size: 1rem;
 	padding: 0.5em;
@@ -142,10 +147,12 @@ button.takki,
 		background: rgba(#FFF, 0.1);
 	}
 
-	@media (max-width: 520px) {
-		display: block !important;
-		clear: both;
-		width: 100% !important;
+	&:not(.fancy-takki) {
+		@media (max-width: 520px) {
+			display: block !important;
+			clear: both;
+			width: 100% !important;
+		}
 	}
 
 	&:hover {
@@ -269,7 +276,7 @@ button.takki,
 	.product__options {
 		label {
 			font-weight: bold;
-			padding-bottom: 0.5em;
+			padding-bottom: 0em;
 			display: block;
 			clear: both;
 		}
@@ -403,7 +410,7 @@ button.takki,
 }
 
 .Footer {
-	background: $dark;
+	background: $green;
 	padding: 1em;
 	color: #FFF;
 	h1, h2, h3, h4, h5, h6 {
@@ -431,7 +438,8 @@ button.takki,
 header {
 	padding-top: 1em;
 	padding-bottom: 1em;
-	background: $dark-darker;
+	//background: $dark-darker;
+	background: $green;
 
 	h1 {
 		padding: 0;
@@ -491,7 +499,32 @@ header {
 }
 
 
+#mobile-nav {
+	.uk-offcanvas-bar {
+		box-shadow: 0px 0px 8px rgba($dark, 1);
+		background: $green;
 
+		nav {
+			div {
+				display: block;
+				clear: both;
+				padding: 0;
+				margin: 0;
+				a {
+					font-size: 1.2rem;
+					text-transform: uppercase;
+					line-height: 1.8rem;
+					border-bottom: 1px solid $dark;
+					padding: 10px;
+					&:hover {
+						text-decoration: none;
+					}
+					display: block;
+				}
+			}
+		}
+	}
+}
 nav {
 	&.leftmenu {
 		ul li a span {
@@ -599,6 +632,13 @@ nav {
 					justify-content: space-between;
 				}
 			}
+
+			&.hidden-large {
+				@media (min-width: 1101px) {
+					display: none;
+					justify-content: space-between;
+				}
+			}
 		}
 
 		background: rgba($dark, 0);
@@ -695,6 +735,81 @@ figure {
 		width: 100%;
 		img {
 			width: 100%;
+		}
+	}
+}
+
+
+
+
+.cart2-container {
+	position: relative;
+	
+	.updating-cart {
+		display: block;
+		opacity: 0;
+		z-index: -1;
+		font-weight: bold;
+		font-size: 2rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba($dark-lighter2, 0.5);
+		transition: opacity 0.6s;
+
+		&.active {
+			transition: opacity 0.6s;
+			z-index: 1;
+			opacity: 1;
+		}
+	}
+}
+.cart2 {
+	/*padding-bottom: 2em;*/
+	div.column {
+		/*outline: 1px solid red;*/
+		padding: 10px;
+		@media (max-width: 767px) {
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+		img {
+			width: 100%;
+			height: auto !important;
+			box-shadow: 0px 0px 8px rgba($dark, 0.2);
+			border-radius: $radius;
+		}
+
+		h5 {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	.CartItem {
+		@media (max-width: 767px) {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			/*font-size: 0.85rem;
+			line-height: 1.25rem;*/
+
+			li {
+				padding: 0;
+				margin: 0;
+			}
+		}
+
+		border: 1px solid rgba($dark, 0.1);
+		
+		& + .CartItem {
+			border-top: 0px solid rgba($dark, 0.1);
 		}
 	}
 }

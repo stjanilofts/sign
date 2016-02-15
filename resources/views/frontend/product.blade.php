@@ -77,13 +77,27 @@
 							<hr>
 
 							<div class="product__options uk-margin-top">
-								<div v-for="option in options" class="product__option">
-									<label>@{{ option.text }}</label>
-									<select v-model="selected[$index]">
-										<option v-for="value in option.values" :selected="$index == 0" :value="{ option_id: $parent.$index, value_id: $index, value: value, type: option.text }">
-											@{{ value.text }}
-										</option>
-									</select>
+								<h3>Valmöguleikar</h3>
+								<div class="uk-grid">
+									<div v-for="option in options" class="product__option uk-width-1-2">
+										<div v-if="option.type == 'select'">
+											<label>@{{ option.text }}</label>
+											<select v-model="selected[$index]" class="uk-width-1-1">
+												<option v-for="value in option.values" :selected="$index == 0" :value="{ option_id: $parent.$index, value_id: $index, value: value, type: option.text }">
+													@{{ value.text }}
+												</option>
+											</select>
+										</div>
+										<div v-if="option.type == 'radio'">
+											<label>@{{ option.text }}</label>
+											<span v-for="value in option.values">
+											<input v-model="selected[$index]" type="radio"
+												   :checked="$index == 0"
+												   :value="{ option_id: $parent.$index, value_id: $index, value: value, type: option.text }">
+													@{{ value.text }}
+											</span>
+										</div>
+									</div>
 								</div>
 
 								<div class="product__option">
@@ -93,6 +107,10 @@
 
 								<div class="uk-margin-top">
 									<div class="product__price">Verð @{{ priceFormatted(price) }}</div>
+								</div>
+
+								<div v-show="gyllingValin" class="uk-margin-top">
+									<p><strong>Athugið:</strong> Gyllingin getur gefið skartinu hlýlegt yfirbragð. Hún máist þó af með tímanum. Gyllingin fæst án aukagjalds en án ábyrgðar um endingu.</p>
 								</div>
 
 								<div class="uk-margin-top">
@@ -189,6 +207,18 @@
         },
 
 		computed: {
+			gyllingValin: function() {
+				var found = false;
+
+				this.selected.filter(function(item) {
+					if (item.value.text === 'Gylling' || item.value.text === 'Rósagylling' ? true : false) {
+						found = true;
+					}
+				})
+
+				return found;
+			},
+
 			price: function() {
 				var price = this.base_price
 
@@ -218,6 +248,7 @@
 					this.isProcessing = false;
 					if(response.data.status == 'success') {
 						cart_widget.increment(this.quantity);
+						//cart_widget2.increment(this.quantity);
 						this.added = true;
 						UIkit.notify("<span class='uk-text-center'><i class='uk-icon-small uk-icon-check-circle uk-margin-right'></i>Vöru var bætt í <a href='/karfa/'>körfu</a>!</span>", { pos: 'bottom-center' })
 					}

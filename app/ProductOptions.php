@@ -23,6 +23,18 @@ class ProductOptions
         $this->persist();
     }
 
+    public function update($options = array())
+    {
+        $newOptions = [];
+
+        foreach($options as $option) {
+            if($option['readonly']) continue;
+            $newOptions[] = $option;
+        }
+
+        $this->product->update(['options' => $newOptions]);
+    }
+
     public function remove($idx = -1)
     {
         if($idx >= 0) {
@@ -59,11 +71,17 @@ class ProductOptions
         $staticOptions[] = [
             'text' => 'Efni',
             'type' => 'select',
+            'readonly' => 1,
             'values' => $values,
         ];
 
         // Húð
         $values = [];
+        $values[] = [
+            'text' => 'Engin gylling',
+            'value' => '',
+            'modifier' => 0,
+        ];
         $values[] = [
             'text' => 'Gylling',
             'value' => '',
@@ -77,6 +95,7 @@ class ProductOptions
         $staticOptions[] = [
             'text' => 'Húð',
             'type' => 'select',
+            'readonly' => 1,
             'values' => $values,
         ];
 
@@ -97,6 +116,7 @@ class ProductOptions
                 $staticOptions[] = [
                     'text' => 'Stærð',
                     'type' => 'select',
+                    'readonly' => 1,
                     'values' => $values,
                 ];
 
@@ -115,6 +135,7 @@ class ProductOptions
                 $staticOptions[] = [
                     'text' => 'Lengd keðju',
                     'type' => 'select',
+                    'readonly' => 1,
                     'values' => $values,
                 ];
 

@@ -1,35 +1,35 @@
 <div v-cloak id="admin-product-options">
 
 	<div v-for="option in options" class="uk-margin-bottom">
-		<div class="uk-panel uk-panel-box uk-panel-box-primary">
+		<div class="uk-panel uk-panel-box" :class="{ 'uk-panel-box-primary': option.readonly > 0 }">
 			<form class="uk-form uk-form-stacked"
 				  @submit="onSubmit">
 				<div class="uk-grid uk-grid-small" data-uk-grid-margin>
 					<div class="uk-width-9-10">
-						<input class="uk-form-large uk-form-controls uk-width-1-1" v-model="option.text" placeholder="Valflokkaheiti" />
+						<input :disabled="option.readonly > 0" class="uk-form-large uk-form-controls uk-width-1-1" v-model="option.text" placeholder="Valflokkaheiti" />
 					</div>
 
 					<div class="uk-width-1-10">
-						<a @click="removeOption($index)"><i class="uk-icon-medium uk-icon-remove"></i></a>
+						<a v-if="!option.readonly" :disabled="option.readonly > 0" @click="removeOption($index)"><i class="uk-icon-medium uk-icon-remove"></i></a>
 					</div>
 				</div>
 
 				<div v-if="option.values.length > 0 || option.text.length > 0" class="uk-margin-top">
 					<div class="uk-grid uk-grid-small" data-uk-grid-margin v-for="value in option.values">
 						<div class="uk-width-7-10">
-							<input class="uk-form-small uk-width-1-1" v-model="value.text" placeholder="Valmöguleiki">
+							<input :disabled="option.readonly > 0" class="uk-form-small uk-width-1-1" v-model="value.text" placeholder="Valmöguleiki">
 						</div>
 
 						<div class="uk-width-2-10">
-							<input class="uk-form-small uk-width-1-1" v-model="value.modifier" placeholder="Mismunur (+/-)">
+							<input :disabled="option.readonly > 0" class="uk-form-small uk-width-1-1" v-model="value.modifier" placeholder="Mismunur (+/-)">
 						</div>
 
 						<div class="uk-width-1-10">
-							<a @click="removeSubOption($parent.$index, $index)"><i class="uk-icon-small uk-icon-remove"></i></a>
+							<a v-if="!option.readonly" :disabled="option.readonly > 0" @click="removeSubOption($parent.$index, $index)"><i class="uk-icon-small uk-icon-remove"></i></a>
 						</div>
 					</div>
 
-					<button class="uk-button uk-margin-top uk-button-small" @click="addSubOption($index)">Nýr valmöguleiki<i class="uk-icon-plus uk-margin-left"></i></button>
+					<button :disabled="option.readonly > 0" class="uk-button uk-margin-top uk-button-small" @click="addSubOption($index)">Nýr valmöguleiki<i class="uk-icon-plus uk-margin-left"></i></button>
 				</div>
 			</form>
 		</div>
@@ -43,10 +43,11 @@
 
 	<p v-if="saving"><i class="uk-icon-spin uk-icon-spinner"></i> Vista...</p>
 
-	
-	<!--<pre>
+	{{--
+	<pre>
 	@{{ options | json }}
-	</pre>-->
+	</pre>
+	--}}
 	
 	
 </div>
@@ -107,6 +108,7 @@ new Vue({
 
 			this.options.push({
 				text: '',
+				readonly: 0,
 				type: 'select',
 				values: []
 			});

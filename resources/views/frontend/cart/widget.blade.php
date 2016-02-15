@@ -6,7 +6,7 @@
 	</a>
 </div>
 <script>
-var cart_widget = new Vue({
+var {{ $elementId }} = new Vue({
 	el: '#{{ $elementId }}',
 
 	data: {

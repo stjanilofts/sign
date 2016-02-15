@@ -21,7 +21,7 @@ class Product extends Formable
 
     protected $table = 'products';
 
-    protected $fillable = ['id', 'title', 'konur', 'karlar', 'collection', 'features', 'extras', 'options', 'tech', 'sizes', 'fillimage', 'hlutur', 'price', 'vnr', 'content', 'slug', 'category_id', 'images', 'shell', 'skirt', 'translations', 'order', 'status', 'files'];
+    protected $fillable = ['id', 'title', 'konur', 'karlar', 'product_type', 'collection', 'features', 'extras', 'options', 'tech', 'sizes', 'fillimage', 'hlutur', 'price', 'vnr', 'content', 'slug', 'category_id', 'images', 'shell', 'skirt', 'translations', 'order', 'status', 'files'];
 
     public $translatable = [
         'title',
@@ -31,11 +31,11 @@ class Product extends Formable
     ];
 
 
-    public $fillableExtras = [
+    /*public $fillableExtras = [
         'frontpaged' => 'Birta á forsíðu<br><small>(Skrifa númer í hvaða röð ef svo er)</small>',
         'size' => 'Stærð á boxi<br><small>(1 eða 2)</small>',
         'titill' => 'Titill í boxi<br><small>(ef annar en venjulegur titill)</small>',
-    ];
+    ];*/
 
 
     public function updateSpecial($request = [])
@@ -82,9 +82,9 @@ class Product extends Formable
     public static function product_types()
     {
         return [
-            '',
-            'hringur',
-            'halsmen',
+            '' => 'Venjuleg',
+            'hringur' => 'Hringur',
+            'halsmen' => 'Hálsmen',
         ];
     }
 
@@ -171,11 +171,11 @@ class Product extends Formable
             'type' => 'text',
             'name' => 'vnr'
         ],
-        [
+        /*[
             'title' => 'Features',
             'type' => 'text',
             'name' => 'features'
-        ],
+        ],*/
         [
             'title' => 'Efni',
             'type' => 'textarea',
@@ -184,22 +184,22 @@ class Product extends Formable
                 'ckeditor' => true
             ],
         ],
-        [
+        /*[
             'title' => 'Tæknilegar upplýsingar',
             'type' => 'textarea',
             'name' => 'tech',
             'args' => [
                 'ckeditor' => false
             ],
-        ],
-        [
+        ],*/
+        /*[
             'title' => 'Stærðir',
             'type' => 'textarea',
             'name' => 'sizes',
             'args' => [
                 'ckeditor' => false
             ],
-        ],
+        ],*/
         [
             'title' => 'Slug',
             'type' => 'text',

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(function() {
+	/*$(function() {
 		var timer = 0;
 		var items = [];
 
@@ -20,7 +20,15 @@ $(document).ready(function() {
 				}, 300);
 			});
 		});
+	});*/
+
+	$(window).resize(function() {
+		UIkit.offcanvas.hide([force = true])
 	});
+
+
+
+
 });
 
 /*function getWindowWidth() {

@@ -34,11 +34,14 @@ return [
     | Hvaða tungumál eru í boði? Fyrsti er sem kemur alltaf fremst allsstaðar, og er hann sá sem er stilltur sem default í kerfinu.
     |
     */
-    'locales' => ['is', 'en'],
+    'locales' => [
+        'is',
+        //'en'
+    ],
 
     'flagicons' => [
         'is' => 'flagicons/Iceland.png',
-        'en' => 'flagicons/England.png',
+        //'en' => 'flagicons/England.png',
     ],
 
 

@@ -83,13 +83,12 @@
 			</div>
 
 			<div class="uk-width-medium-1-1">
-					<label>Eitthvað sem þú vilt taka fram?<br>
-						<textarea class="uk-width-1-1" rows="5" name="athugasemd" v-model="newOrder.athugasemd"></textarea>
-					</label>
-				</div>
+				<label>Eitthvað sem þú vilt taka fram?<br>
+					<textarea class="uk-width-1-1" rows="5" name="athugasemd" v-model="newOrder.athugasemd"></textarea>
+				</label>
 			</div>
 
-			<div class="uk-width-1-1">
+			<div class="uk-width-1-1 uk-margin-top">
 				<a href="/karfa/" class="takki" :disabled="submitDisabled"><i class="uk-icon-arrow-circle-o-left uk-margin-right"></i>Aftur í körfu</a>
 
 				<button :disabled="submitDisabled" class="takki">
