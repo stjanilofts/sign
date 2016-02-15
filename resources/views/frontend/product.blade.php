@@ -32,31 +32,39 @@
 									</div>
 								@endif
 
+
 								@if(count($images) > 1)
 									<div class="uk-width-1-1">
-										<div class="uk-slidenav-position" data-uk-slider="{infinite: false}">
-										    <div class="uk-slider-container">
-										        <ul class="uk-slider uk-grid uk-grid-width-medium-1-4 uk-grid-width-small-1-3 uk-grid-width-large-1-5 uk-grid-width-1-2">
-													@foreach($images as $k => $img)
-														<?php if($k==0)continue; ?>
-								            			<li class="product__aukamynd">
-										            		<a title="{{ $img['title'] != $img['name'] ? $img['title'] : '' }}" href="/imagecache/original/{{ $img['name'] }}" data-uk-lightbox="{group:'myndir'}"><img src="/imagecache/small/{{ $img['name'] }}" /></a>
-									            		</li>
-									            	@endforeach
-										        </ul>
-										    </div>
+										<h3 class="uk-text-center-small">Myndir</h3>
 
-										    <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slider-item="previous" draggable="false"></a>
-										    <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slider-item="next" draggable="false"></a>
-										</div>
+										<div class="uk-margin" data-uk-slideset="{small: 3, medium: 5, large: 6}">
+			                                <div class="uk-slidenav-position uk-margin">
+			                                    <ul class="uk-slideset uk-grid uk-flex-center uk-grid-width-1-1 uk-grid-width-large-1-6 uk-grid-width-medium-1-4 uk-grid-width-small-1-2">
+										        	@foreach($images as $k => $img)
+										            	<li>
+										            		<span class="product__aukamynd">
+										            			<a title="{{ $img['title'] != $img['name'] ? $img['title'] : '' }}" href="/imagecache/original/{{ $img['name'] }}" data-uk-lightbox="{group:'aukamyndir'}"><img src="/imagecache/small/{{ $img['name'] }}" /></a>
+										            		</span>
+										            	</li>
+										            @endforeach
+			                                    </ul>
+			                                    <!--<a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous"></a>
+			                                    <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next"></a>-->
+		                                	</div>
+		                                	<ul class="uk-slideset-nav uk-dotnav uk-flex-center">
+		                                		<li data-uk-slideset-item="0" class="uk-active"><a></a></li>
+		                                		<li data-uk-slideset-item="1" class=""><a></a></li>
+		                                	</ul>
+		                            	</div>
 									</div>
 								@endif
+
 							</div>
 						</div>
 
 						<div class="uk-width-medium-1-2">
 							<div class="product__info">
-								<h3>Lýsing</h3>
+								<h3 class="uk-text-center-small">Lýsing</h3>
 								{!! $item->content !!}
 							</div>
 
@@ -77,8 +85,8 @@
 							<hr>
 
 							<div class="product__options uk-margin-top">
-								<h3>Valmöguleikar</h3>
-								<div class="uk-grid">
+								<h3 class="uk-text-center-small">Valmöguleikar</h3>
+								<div class="uk-grid uk-grid-small">
 									<div v-for="option in options" class="product__option uk-width-1-2">
 										<div v-if="option.type == 'select'">
 											<label>@{{ option.text }}</label>
@@ -127,7 +135,7 @@
 								</div>
 							</div>
 
-							@if(count($colors) > 1)
+							{{-- @if(count($colors) > 1)
 								<div class="uk-grid uk-grid-small uk-margin-large-top" data-uk-grid-margin>
 									<div class="uk-width-1-1">
 										<strong>Litir</strong>
@@ -139,7 +147,7 @@
 						            	</div>
 					            	@endforeach
 					            </div>
-							@endif
+							@endif --}}
 						</div>
 					</div>
 

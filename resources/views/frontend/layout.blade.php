@@ -60,7 +60,8 @@
                             </div>
                         @endif
                         
-                        <div class="{{ $menuItem['hidden_small'] ? 'hidden-small' : '' }} {{ $menuItem['hidden_large'] ? 'hidden-large' : '' }}">
+                        <div class="{{ \Request::is(ltrim(rtrim($menuItem['path'], '/'), '/').'*') ? 'active' : '' }} {{ $menuItem['hidden_small'] ? 'hidden-small' : '' }} {{ $menuItem['hidden_large'] ? 'hidden-large' : '' }}">
+
                             @if(array_key_exists('mobile', $menuItem))
                                 <a href="#mobile-nav" data-uk-offcanvas>{!! $menuItem['icon'] !!}{!! $menuItem['title'] !!}</a>
                             @else
@@ -124,7 +125,7 @@
 
             <div class="Footer">
                 <div class="uk-grid" data-uk-grid-margin>   
-                    <div class="uk-width-medium-1-4 uk-text-center-small">
+                    <div class="uk-width-medium-1-4 uk-width-small-1-2 uk-text-center-small">
                         <h3><i class="uk-icon-home uk-margin-right"></i>Sign ehf.</h3>
                         <ul>
                             <li>Fornubúðir 12</li>
@@ -134,15 +135,15 @@
                         </ul>
                     </div>
 
-                    <div class="uk-width-medium-1-4 uk-text-center-small">
-                        <h3><i class="uk-icon-clock-o uk-margin-right"></i>Opnunartímar:</h3>
+                    <div class="uk-width-medium-1-4 uk-width-small-1-2 uk-text-center-small">
+                        <h3><i class="uk-icon-clock-o uk-margin-right"></i>Opnunartímar</h3>
                         <ul>
                             <li><strong>Virka daga</strong><br>10:00 - 18:00</li>
                             <li><strong>Laugardaga</strong><br>11:00 - 15:00</li>
                         </ul>
                     </div>
 
-                    <div class="uk-width-medium-1-4 uk-text-center-small">
+                    <div class="uk-width-medium-1-4 uk-width-small-1-2 uk-text-center-small">
                         <h3><i class="uk-icon-money uk-margin-right"></i>Greiðsluleiðir</h3>
                         <ul>
                             <li><i class="uk-icon-cc-visa uk-icon-large"></i></li>
@@ -150,7 +151,7 @@
                         </ul>
                     </div>
 
-                    <div class="uk-width-medium-1-4 uk-text-right uk-text-center-small">
+                    <div class="uk-width-medium-1-4 uk-width-small-1-2 uk-text-right uk-text-center-small">
                         <a href="https://www.facebook.com/SignSkart/" class="uk-margin-right"><i class="uk-icon-facebook-square uk-icon-large"></i></a>
                         <a href="#" class="uk-margin-right"><i class="uk-icon-twitter-square uk-icon-large"></i></a>
                         <a href="#"><i class="uk-icon-pinterest-square uk-icon-large"></i></a>
@@ -177,7 +178,7 @@
                             </div>
                         @endif --}}
                         
-                        <div class="{{ $menuItem['hidden_small'] ? 'hidden-small' : '' }} {{ $menuItem['hidden_large'] ? 'hidden-large' : '' }}">
+                        <div class="{{ \Request::is(ltrim(rtrim($menuItem['path'], '/'), '/').'*') ? 'active' : '' }}">
                             @if(array_key_exists('mobile', $menuItem))
                             @else
                                 <a href="{{ $menuItem['path'] }}">{!! $menuItem['icon'] !!}{!! $menuItem['title'] !!}</a>

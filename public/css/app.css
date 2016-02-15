@@ -35,14 +35,19 @@ html {
     line-height: 2.2rem; }
   @media (max-width: 1400px) {
     html {
+      line-height: 32px;
       font-size: 16px; } }
   @media (max-width: 1100px) {
     html {
-      font-size: 14px; } }
+      font-size: 15px;
+      line-height: 25px; } }
 
 hr {
   border: 0px solid #FFF;
   border-bottom: 1px solid rgba(34, 31, 31, 0.1) !important; }
+
+label.errors {
+  color: #ED4337; }
 
 input, textarea, select {
   box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
@@ -201,15 +206,19 @@ button.takki,
   clear: both; }
 
 #product-view .product__aukamynd {
-  border-radius: 4px;
-  box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
-  display: inline-block; }
-  #product-view .product__aukamynd a {
-    border-radius: 4px;
-    box-shadow: 0px 0px 8px rgba(34, 31, 31, 0.2);
-    background: #FFF;
-    overflow: hidden;
-    display: inline-block; }
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  width: 100%; }
+  #product-view .product__aukamynd img {
+    width: 100%;
+    height: auto !important;
+    vertical-align: top;
+    border: 1px solid rgba(34, 31, 31, 0.1); }
+    @media (max-width: 480px) {
+      #product-view .product__aukamynd img {
+        margin: 0 auto;
+        max-width: 150px; } }
 
 #product-view .product__price {
   padding-top: 0.5em;
@@ -314,7 +323,7 @@ button.takki,
 
 .Footer {
   background: #0D130D;
-  padding: 1em;
+  padding: 3em;
   color: #FFF;
   line-height: 1.5rem; }
   .Footer h1, .Footer h2, .Footer h3, .Footer h4, .Footer h5, .Footer h6 {
@@ -387,6 +396,9 @@ header {
     clear: both;
     padding: 0;
     margin: 0; }
+    #mobile-nav .uk-offcanvas-bar nav div.active a {
+      color: #221f1f;
+      background: #f8f7f7; }
     #mobile-nav .uk-offcanvas-bar nav div a {
       font-size: 1.2rem;
       text-transform: uppercase;
@@ -446,6 +458,7 @@ nav.top {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-height: 150px;
   height: 150px;
   background: rgba(34, 31, 31, 0); }
   nav.top div {
@@ -468,6 +481,9 @@ nav.top {
     nav.top div img {
       width: 100%;
       height: auto !important; }
+      @media (max-width: 767px) {
+        nav.top div img {
+          max-height: 85px !important; } }
       @media (max-width: 1100px) {
         nav.top div img {
           max-height: 120px;
@@ -498,6 +514,9 @@ nav.top {
   nav.top.sticky-active {
     height: 100px;
     background: rgba(34, 31, 31, 0.9); }
+    @media (max-width: 767px) {
+      nav.top.sticky-active {
+        max-height: 75px; } }
     nav.top.sticky-active a {
       text-shadow: none !important; }
     nav.top.sticky-active img {

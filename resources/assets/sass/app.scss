@@ -80,11 +80,13 @@ html {
 	}
 
 	@media (max-width: 1400px) {
+		line-height: 32px;
 		font-size: 16px;
 	}
 
 	@media (max-width: 1100px) {
-		font-size: 14px;
+		font-size: 15px;
+		line-height: 25px;
 	}
 }
 
@@ -97,6 +99,11 @@ hr {
 
 
 
+label {
+	&.errors {
+		color: #ED4337;
+	}
+}
 input, textarea, select {
 	box-shadow: 0px 0px 8px rgba($dark, 0.2);
 	border-radius: $radius;
@@ -267,8 +274,6 @@ button.takki,
 
 
 
-
-
 #product-view {
 	.product__option {
 		margin-bottom: 1em;
@@ -282,15 +287,19 @@ button.takki,
 		}
 	}
 	.product__aukamynd {
-		border-radius: $radius;
-		box-shadow: 0px 0px 8px rgba($dark, 0.2);
+		margin: 0 auto;
+		text-align: center;
 		display: inline-block;
-		a {
-			border-radius: $radius;
-			box-shadow: 0px 0px 8px rgba($dark, 0.2);
-			background: #FFF;
-			overflow: hidden;
-			display: inline-block;
+		width: 100%;
+		img {
+			width: 100%;
+			@media (max-width: 480px) {
+				margin: 0 auto;
+				max-width: 150px;
+			}
+			height: auto !important;
+			vertical-align: top;
+			border: 1px solid rgba($dark, 0.1);
 		}
 	}
 	.product__price {
@@ -411,7 +420,7 @@ button.takki,
 
 .Footer {
 	background: $green;
-	padding: 1em;
+	padding: 3em;
 	color: #FFF;
 	h1, h2, h3, h4, h5, h6 {
 		color: #FFF;
@@ -510,6 +519,12 @@ header {
 				clear: both;
 				padding: 0;
 				margin: 0;
+				&.active {
+					a {
+						color: $dark;
+						background: $dark-lighter2;
+					}
+				}
 				a {
 					font-size: 1.2rem;
 					text-transform: uppercase;
@@ -586,6 +601,7 @@ nav {
 
 	&.top {
 		display: flex;
+		max-height: 150px;
 		height: 150px;
 
 		div {
@@ -601,6 +617,10 @@ nav {
 			img {
 				width: 100%;
 				height: auto !important;
+
+				@media (max-width: 767px) {
+					max-height: 85px !important;
+				}
 				
 				@media (max-width: 1100px) {
 					max-height: 120px;
@@ -652,6 +672,10 @@ nav {
 		&.sticky-active {
 			height: 100px;
 			background: rgba($dark, 0.9);
+
+			@media (max-width: 767px) {
+				max-height: 75px;
+			}
 
 			a {
 				text-shadow: none !important;

@@ -5,12 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 use Faker\Factory;
 
 
-function getImages($number = 0) {
+function getImages($count = 0) {
     $images = [];
 
     $dir = scandir(public_path('prods'));
 
     $repository = [];
+
+    $number = 0;
 
     foreach($dir as $k => $v) {
         if($v != '.' && $v != '..') {
@@ -25,7 +27,11 @@ function getImages($number = 0) {
         }
     }
 
-    for($i = 1; $i < $number; $i++) {
+    if($count == 0) {
+        $count = $number;
+    }
+
+    for($i = 1; $i <= $count; $i++) {
         $repoCount = count($repository);
 
         $rand = (mt_rand(1, $repoCount) - 1);
@@ -326,7 +332,7 @@ class DatabaseSeeder extends Seeder
         $flokkur5 = makeCategory(['title' => 'Skraut', 'images' => getImages(3)]);
 
         foreach(getImages() as $image) {
-            $imgs = array_merge([0 => $image], getImages());
+            $imgs = array_merge([0 => $image], getImages(9));
             makeProduct([
                 'title' => $faker->name,
                 'category_id' => (mt_rand(0,1) == 1 ? $flokkur1->id : $flokkur2->id),

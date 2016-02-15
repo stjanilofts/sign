@@ -6,6 +6,13 @@
 
 	<div class="Page">
 		{!! cmsContent($page) !!}
+
+		@if(\Request::is('hafa-samband') || \Request::is('vertu-i-bandi') )
+			<div>
+				<hr>
+				@include('frontend.forms.contact')
+			</div>
+		@endif
 	</div>
 
 @stop
