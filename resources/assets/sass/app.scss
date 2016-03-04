@@ -31,6 +31,13 @@ html, body {
 	height: 100%;
 }
 
+a#logo {
+	display: inline-block;
+	img {
+		max-width: 100%;
+	}
+}
+
 html {
 	font-family: 'Abel', sans-serif !important;
 

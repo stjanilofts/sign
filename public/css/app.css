@@ -1,6 +1,11 @@
 html, body {
   height: 100%; }
 
+a#logo {
+  display: inline-block; }
+  a#logo img {
+    max-width: 100%; }
+
 html {
   font-family: 'Abel', sans-serif !important;
   background: #635A5A;
