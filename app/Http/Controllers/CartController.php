@@ -116,6 +116,8 @@ class CartController extends Controller
             $options
         );
 
+        $product = $product->toArray();
+
         return response()->json(['status' => 'success', 'product' => $product], 200);
     }
 
